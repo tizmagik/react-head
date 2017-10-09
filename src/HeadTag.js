@@ -14,15 +14,17 @@ export default class HeadTag extends Component {
   };
 
   static defaultProps = {
-    tag: 'meta', // TODO: Maybe create some aliases so this isn't needed
+    tag: 'meta',
   };
 
   componentWillMount() {
     if (canUseDOM) {
       const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
-      const ssrMeta = document.querySelector(`${tag}${buildSelector(rest)}[data-reactroot=""]`);
-      if (ssrMeta) {
-        ssrMeta.remove();
+      const ssrTags = document.head.querySelector(
+        `${tag}${buildSelector(rest)}[data-reactroot=""]`
+      );
+      if (ssrTags) {
+        ssrTags.remove();
       }
     }
   }
