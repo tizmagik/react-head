@@ -74,5 +74,8 @@ const App = () => (
 )
 ```
 
+## Contributing
+
+Please follow the [contributing docs](/CONTRIBUTING.md)
 
 
