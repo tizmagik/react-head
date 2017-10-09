@@ -19,7 +19,7 @@ export default class HeadTag extends Component {
 
   componentWillMount() {
     if (canUseDOM) {
-      const { tag, ...rest } = this.props;
+      const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
       const ssrMeta = document.querySelector(`${tag}${buildSelector(rest)}[data-reactroot=""]`);
       if (ssrMeta) {
         ssrMeta.remove();

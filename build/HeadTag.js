@@ -51,7 +51,9 @@ var HeadTag = function (_Component) {
       if (_canUseDom2.default) {
         var _props = this.props,
             tag = _props.tag,
-            rest = _objectWithoutProperties(_props, ['tag']);
+            children = _props.children,
+            rest = _objectWithoutProperties(_props, ['tag', 'children']); // eslint-disable-line react/prop-types
+
 
         var ssrMeta = document.querySelector('' + tag + (0, _buildSelector2.default)(rest) + '[data-reactroot=""]');
         if (ssrMeta) {
