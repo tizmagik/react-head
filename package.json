@@ -1,9 +1,11 @@
 {
 	"name": "react-head",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "SSR-ready Document Head management for React 16+",
 	"main": "build/index.js",
-	"files": [ "build" ],
+	"files": [
+		"build"
+	],
 	"scripts": {
 		"prepare": "npm run lint && npm run test && npm run build",
 		"build": "babel --out-dir build src --ignore src/__tests__",
@@ -16,7 +18,13 @@
 		"type": "git",
 		"url": "git+https://github.com/tizmagik/react-head.git"
 	},
-	"keywords": [ "react", "head", "portals", "ssr", "isomorphic" ],
+	"keywords": [
+		"react",
+		"head",
+		"portals",
+		"ssr",
+		"isomorphic"
+	],
 	"author": "Jeremy Gayed (https://github.com/tizmagik)",
 	"license": "MIT",
 	"bugs": {
@@ -52,9 +60,14 @@
 		"prop-types": ">=15"
 	},
 	"jest": {
-		"roots": [ "./src" ]
+		"roots": [
+			"./src"
+		]
 	},
 	"lint-staged": {
-		"*.{js,json}": [ "npm run prettier", "git add" ]
+		"*.{js,json}": [
+			"npm run prettier",
+			"git add"
+		]
 	}
 }
