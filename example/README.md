@@ -2,5 +2,5 @@
 
 Example app showing `react-head` usage.
 
-- Check out [server.js](/src/server.js) for server setup example
-- Check out [Home.js](/src/Home.js) for client usage
+- Check out [server.js](/example/src/server.js) for server setup example
+- Check out [Home.js](/example/src/Home.js) for client usage
