@@ -1,6 +1,6 @@
 {
 	"name": "react-head",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "SSR-ready Document Head management for React 16+",
 	"main": "build/index.js",
 	"files": [
