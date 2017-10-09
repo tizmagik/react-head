@@ -60,6 +60,19 @@ res.send(`
 
 There is nothing special required on the client, just render `<HeadTag />` components whenever you want to inject a tag in the `<head />`.
 
+```js
+import React from 'react';
+import HeadTag from 'react-head';
+
+const App = () => (
+   <div className="Home">
+      <HeadTag tag="title">Title of page</HeadTag>
+      <HeadTag tag="link" rel="canonical" content="http://jeremygayed.com/" />
+      <HeadTag tag="meta" name="example" content="whatever" />
+      // ...
+  </div>
+)
+```
 
 
 
