@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buildSelector builds selector based on given object 1`] = `"[one=\\"first\\"][two=\\"second\\"][three=\\"third\\"]"`;

@@ -1,0 +1,60 @@
+{
+	"name": "react-head",
+	"version": "0.0.1",
+	"description": "SSR-ready Document Head management for React 16+",
+	"main": "build/index.js",
+	"files": [ "build" ],
+	"scripts": {
+		"prepare": "npm run lint && npm run test && npm run build",
+		"build": "babel --out-dir build src --ignore src/__tests__",
+		"build:watch": "npm run build -- --watch",
+		"test": "jest",
+		"lint": "eslint ./src",
+		"prettier": "prettier --write --trailing-comma es5 --single-quote --tab-width 2 ./src/**/*.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tizmagik/react-head.git"
+	},
+	"keywords": [ "react", "head", "portals", "ssr", "isomorphic" ],
+	"author": "Jeremy Gayed (https://github.com/tizmagik)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/tizmagik/react-head/issues"
+	},
+	"homepage": "https://github.com/tizmagik/react-head#readme",
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-eslint": "^8.0.1",
+		"babel-jest": "^21.2.0",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.6.0",
+		"babel-preset-react": "^6.24.1",
+		"eslint": "^4.8.0",
+		"eslint-config-airbnb": "^16.0.0",
+		"eslint-config-prettier": "^2.6.0",
+		"eslint-plugin-import": "^2.7.0",
+		"eslint-plugin-jsx-a11y": "^6.0.2",
+		"eslint-plugin-prettier": "^2.3.1",
+		"eslint-plugin-react": "^7.4.0",
+		"husky": "^0.14.3",
+		"jest": "^21.2.1",
+		"lint-staged": "^4.2.3",
+		"prettier": "^1.7.4",
+		"prop-types": "^15.6.0",
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"react-dom": ">=16",
+		"prop-types": ">=15"
+	},
+	"jest": {
+		"roots": [ "./src" ]
+	},
+	"lint-staged": {
+		"*.{js,json}": [ "npm run prettier", "git add" ]
+	}
+}
