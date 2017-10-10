@@ -11,6 +11,7 @@
 		"build": "babel --out-dir build src --ignore src/__tests__",
 		"build:watch": "npm run build -- --watch",
 		"test": "jest",
+		"test:watch": "jest --watch",
 		"lint": "eslint ./src",
 		"prettier": "prettier --write --trailing-comma es5 --single-quote --tab-width 2 ./src/**/*.js"
 	},
@@ -39,6 +40,8 @@
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.6.0",
 		"babel-preset-react": "^6.24.1",
+		"enzyme": "^3.1.0",
+		"enzyme-adapter-react-16": "^1.0.1",
 		"eslint": "^4.8.0",
 		"eslint-config-airbnb": "^16.0.0",
 		"eslint-config-prettier": "^2.6.0",
@@ -51,8 +54,10 @@
 		"lint-staged": "^4.2.3",
 		"prettier": "^1.7.4",
 		"prop-types": "^15.6.0",
+		"raf": "^3.4.0",
 		"react": "^16.0.0",
-		"react-dom": "^16.0.0"
+		"react-dom": "^16.0.0",
+		"react-test-renderer": "^16.0.0"
 	},
 	"peerDependencies": {
 		"react": ">=16",
@@ -62,6 +67,10 @@
 	"jest": {
 		"roots": [
 			"./src"
+		],
+		"setupFiles": [
+			"raf/polyfill",
+			"./utils/setup"
 		]
 	},
 	"lint-staged": {
