@@ -23,6 +23,7 @@ export default class HeadTag extends Component {
       const ssrTags = document.head.querySelector(
         `${tag}${buildSelector(rest)}[data-reactroot=""]`
       );
+      /* istanbul ignore else */
       if (ssrTags) {
         ssrTags.remove();
       }
