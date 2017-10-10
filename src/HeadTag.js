@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import canUseDOM from './canUseDom';
 import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
@@ -17,16 +16,20 @@ export default class HeadTag extends Component {
     tag: 'meta',
   };
 
-  componentWillMount() {
-    if (canUseDOM) {
-      const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
-      const ssrTags = document.head.querySelector(
-        `${tag}${buildSelector(rest)}[data-reactroot=""]`
-      );
-      /* istanbul ignore else */
-      if (ssrTags) {
-        ssrTags.remove();
-      }
+  state = {
+    canUseDOM: false,
+  };
+
+  componentDidMount() {
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ canUseDOM: true });
+
+    const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
+    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}[data-reactroot=""]`);
+
+    /* istanbul ignore else */
+    if (ssrTags) {
+      ssrTags.remove();
     }
   }
 
@@ -35,11 +38,14 @@ export default class HeadTag extends Component {
 
     const Comp = <Tag {...rest} />;
 
-    if (canUseDOM) {
+    if (this.state.canUseDOM) {
       return ReactDOM.createPortal(Comp, document.head);
     }
 
-    this.context.reactHeadTags.add(Comp);
+    // on client we don't require HeadCollector
+    if (this.context.reactHeadTags) {
+      this.context.reactHeadTags.add(Comp);
+    }
 
     return null;
   }
