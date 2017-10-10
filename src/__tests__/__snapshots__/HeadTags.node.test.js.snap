@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeadTag during server rendering adds tags to headTags context array 1`] = `
+Array [
+  <test
+    content="testing tag"
+  >
+    No render
+  </test>,
+]
+`;
+
+exports[`HeadTag during server rendering renders nothing 1`] = `"<div>Yes render</div>"`;
