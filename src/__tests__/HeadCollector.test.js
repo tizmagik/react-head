@@ -3,8 +3,6 @@ import { shallow, render } from 'enzyme';
 import HeadCollector from '../HeadCollector';
 import HeadTag from '../HeadTag';
 
-jest.mock('../canUseDom', () => false);
-
 describe('HeadCollector', () => {
   it('provides context object', () => {
     const arr = [];
