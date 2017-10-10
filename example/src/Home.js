@@ -1,5 +1,6 @@
 import React from 'react';
 import HeadTag from 'react-head';
+import { Link } from 'react-router-dom';
 import logo from './react.svg';
 import './Home.css';
 
@@ -15,6 +16,8 @@ const Home = () => (
     <p className="Home-intro">
       View the example code in <code>src/Home.js</code>. Note that this works isomorphically.
     </p>
+    <p>Click the example contact page below to see how the Header tags will update</p>
+      <Link to='/contact'>Contact Us</Link>
     <ul className="Home-resources">
       <li>
         <a href="https://github.com/tizmagik/react-head">Docs</a>

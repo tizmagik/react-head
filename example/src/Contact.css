@@ -1,34 +1,34 @@
-.Home {
+.Contact {
   text-align: center;
 }
 
-.Home-logo {
-  animation: Home-logo-spin infinite 20s linear;
+.Contact-logo {
+  animation: Contact-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.Home-header {
+.Contact-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.Home-intro {
+.Contact-intro {
   font-size: large;
 }
 
-.Home-resources {
+.Contact-resources {
   list-style: none;
   padding-left: 0;
 }
 
-.Home-resources > li {
+.Contact-resources > li {
   display: inline-block;
   padding: 1rem;
 }
 
-@keyframes Home-logo-spin {
+@keyframes Contact-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
