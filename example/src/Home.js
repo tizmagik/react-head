@@ -6,7 +6,7 @@ import './Home.css';
 
 const Home = () => (
   <div className="Home">
-    <HeadTag tag="title">Example react-head App</HeadTag>
+    <HeadTag tag="title">Home | Example react-head App</HeadTag>
     <HeadTag tag="link" rel="canonical" content="http://jeremygayed.com/" />
     <HeadTag tag="meta" name="example" content="whatever" />
     <div className="Home-header">
@@ -17,7 +17,7 @@ const Home = () => (
       View the example code in <code>src/Home.js</code>. Note that this works isomorphically.
     </p>
     <p>Click the example contact page below to see how the Header tags will update</p>
-      <Link to='/contact'>Contact Us</Link>
+    <Link to="/contact">Contact Page</Link>
     <ul className="Home-resources">
       <li>
         <a href="https://github.com/tizmagik/react-head">Docs</a>
