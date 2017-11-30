@@ -8,7 +8,7 @@
 	],
 	"scripts": {
 		"prepare": "npm run lint && npm run test && npm run build",
-		"postinstall": "npm i && npm run lint && npm run test && npm run build",
+		"postinstall": "npm run build",
 		"build": "babel --out-dir build src --ignore src/__tests__",
 		"build:watch": "npm run build -- --watch",
 		"example": "cd example && npm i && npm start",
