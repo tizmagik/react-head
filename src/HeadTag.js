@@ -10,10 +10,12 @@ export default class HeadTag extends Component {
 
   static propTypes = {
     tag: PropTypes.string,
+    staticSSR: PropTypes.bool,
   };
 
   static defaultProps = {
     tag: 'meta',
+    staticSSR: false,
   };
 
   state = {
@@ -24,8 +26,9 @@ export default class HeadTag extends Component {
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ canUseDOM: true });
 
-    const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
-    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}[data-reactroot=""]`);
+    const { staticSSR, tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
+    const ext = staticSSR ? '' : '[data-reactroot=""]';
+    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}${ext}`);
 
     /* istanbul ignore else */
     if (ssrTags) {
@@ -34,7 +37,7 @@ export default class HeadTag extends Component {
   }
 
   render() {
-    const { tag: Tag, ...rest } = this.props;
+    const { staticSSR, tag: Tag, ...rest } = this.props;
 
     const Comp = <Tag {...rest} />;
 
