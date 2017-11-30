@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import BuildSelector from './buildSelector';
+import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
   static contextTypes = {
@@ -28,7 +28,7 @@ export default class HeadTag extends Component {
 
     const { staticSSR, tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
     const ext = staticSSR ? '' : '[data-reactroot=""]';
-    const ssrTags = document.head.querySelector(`${tag}${BuildSelector(rest)}${ext}`);
+    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}${ext}`);
 
     /* istanbul ignore else */
     if (ssrTags) {

@@ -4,12 +4,10 @@
 	"description": "SSR-ready Document Head management for React 16+",
 	"main": "build/index.js",
 	"files": [
-		"build",
-		"src"
+		"build"
 	],
 	"scripts": {
 		"prepare": "npm run lint && npm run test && npm run build",
-		"postinstall": "npm run build",
 		"build": "babel --out-dir build src --ignore src/__tests__",
 		"build:watch": "npm run build -- --watch",
 		"example": "cd example && npm i && npm start",

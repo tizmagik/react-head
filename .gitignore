@@ -1,5 +1,4 @@
 .vscode
-build
 
 # Logs
 logs
@@ -59,4 +58,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
