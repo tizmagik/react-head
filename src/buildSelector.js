@@ -2,7 +2,7 @@
 const buildSelector = obj =>
   Object.keys(obj)
     .map(k => {
-      const cnt = obj[k].replace(/["\\]/g, '\\$&');
+      const cnt = String(obj[k]).replace(/["\\]/g, '\\$&');
       return `[${k}="${cnt}"]`;
     })
     .join('');

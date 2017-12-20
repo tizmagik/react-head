@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 /* eslint no-useless-escape:0 */
 var buildSelector = function buildSelector(obj) {
   return Object.keys(obj).map(function (k) {
-    var cnt = obj[k].replace(/["\\]/g, '\\$&');
+    var cnt = String(obj[k]).replace(/["\\]/g, '\\$&');
     return '[' + k + '="' + cnt + '"]';
   }).join('');
 };
