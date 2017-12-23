@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -58,14 +60,12 @@ var HeadTag = function (_Component) {
       this.setState({ canUseDOM: true });
 
       var _props = this.props,
-          staticSSR = _props.staticSSR,
           tag = _props.tag,
           children = _props.children,
-          rest = _objectWithoutProperties(_props, ['staticSSR', 'tag', 'children']); // eslint-disable-line react/prop-types
+          rest = _objectWithoutProperties(_props, ['tag', 'children']); // eslint-disable-line react/prop-types
 
 
-      var ext = staticSSR ? '' : '[data-reactroot=""]';
-      var ssrTags = document.head.querySelector('' + tag + (0, _buildSelector2.default)(rest) + ext);
+      var ssrTags = document.head.querySelector('' + tag + (0, _buildSelector2.default)(rest) + '[data-ssr=""]');
 
       /* istanbul ignore else */
       if (ssrTags) {
@@ -76,19 +76,24 @@ var HeadTag = function (_Component) {
     key: 'render',
     value: function render() {
       var _props2 = this.props,
-          staticSSR = _props2.staticSSR,
           Tag = _props2.tag,
-          rest = _objectWithoutProperties(_props2, ['staticSSR', 'tag']);
-
-      var Comp = _react2.default.createElement(Tag, rest);
+          rest = _objectWithoutProperties(_props2, ['tag']);
 
       if (this.state.canUseDOM) {
+        var Comp = _react2.default.createElement(Tag, _extends({
+          key: '' + Tag + Object.keys(rest).filter(function (key) {
+            return key !== 'content' && key !== 'children';
+          }).map(function (key) {
+            return ':' + key;
+          }).join('')
+        }, rest));
         return _reactDom2.default.createPortal(Comp, document.head);
       }
 
       // on client we don't require HeadCollector
       if (this.context.reactHeadTags) {
-        this.context.reactHeadTags.add(Comp);
+        var ServerComp = _react2.default.createElement(Tag, _extends({ 'data-ssr': '' }, rest));
+        this.context.reactHeadTags.add(ServerComp);
       }
 
       return null;
@@ -102,11 +107,9 @@ HeadTag.contextTypes = {
   reactHeadTags: _propTypes2.default.object
 };
 HeadTag.propTypes = {
-  tag: _propTypes2.default.string,
-  staticSSR: _propTypes2.default.bool
+  tag: _propTypes2.default.string
 };
 HeadTag.defaultProps = {
-  tag: 'meta',
-  staticSSR: false
+  tag: 'meta'
 };
 exports.default = HeadTag;
