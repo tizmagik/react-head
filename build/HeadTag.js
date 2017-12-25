@@ -65,7 +65,7 @@ var HeadTag = function (_Component) {
           rest = _objectWithoutProperties(_props, ['tag', 'children']); // eslint-disable-line react/prop-types
 
 
-      var ssrTags = document.head.querySelector('' + tag + (0, _buildSelector2.default)(rest) + '[data-ssr=""]');
+      var ssrTags = document.head.querySelector('' + tag + (0, _buildSelector2.default)(rest) + '[data-rh=""]');
 
       /* istanbul ignore else */
       if (ssrTags) {
@@ -80,19 +80,13 @@ var HeadTag = function (_Component) {
           rest = _objectWithoutProperties(_props2, ['tag']);
 
       if (this.state.canUseDOM) {
-        var Comp = _react2.default.createElement(Tag, _extends({
-          key: '' + Tag + Object.keys(rest).filter(function (key) {
-            return key !== 'content' && key !== 'children';
-          }).map(function (key) {
-            return ':' + key;
-          }).join('')
-        }, rest));
+        var Comp = _react2.default.createElement(Tag, rest);
         return _reactDom2.default.createPortal(Comp, document.head);
       }
 
       // on client we don't require HeadCollector
       if (this.context.reactHeadTags) {
-        var ServerComp = _react2.default.createElement(Tag, _extends({ 'data-ssr': '' }, rest));
+        var ServerComp = _react2.default.createElement(Tag, _extends({ 'data-rh': '' }, rest));
         this.context.reactHeadTags.add(ServerComp);
       }
 

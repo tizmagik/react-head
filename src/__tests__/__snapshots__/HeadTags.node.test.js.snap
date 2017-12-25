@@ -4,6 +4,7 @@ exports[`HeadTag during server rendering adds tags to headTags context array 1`]
 Array [
   <test
     content="testing tag"
+    data-rh=""
   >
     No render
   </test>,

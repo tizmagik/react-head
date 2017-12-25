@@ -37,8 +37,8 @@ describe('HeadTag during client rendering', () => {
   );
 
   it('removes head tags added during ssr', () => {
-    expect(qsMock).toHaveBeenCalledWith('meta[name="x"][content="testing"][data-reactroot=""]');
-    expect(qsMock).toHaveBeenCalledWith('title[data-reactroot=""]');
+    expect(qsMock).toHaveBeenCalledWith('meta[name="x"][content="testing"][data-rh=""]');
+    expect(qsMock).toHaveBeenCalledWith('title[data-rh=""]');
     expect(removeMock).toHaveBeenCalledTimes(2);
   });
   it('renders into document.head portal', () => {
