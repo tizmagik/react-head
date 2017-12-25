@@ -4,9 +4,11 @@ exports[`HeadCollector adds HeadTags to given array from component tree 1`] = `
 Array [
   <tag1
     another="value1"
+    data-rh=""
     name="name1"
   />,
   <tag2
+    data-rh=""
     test="test2"
     third="value2"
   />,

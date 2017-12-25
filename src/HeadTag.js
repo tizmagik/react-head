@@ -25,7 +25,7 @@ export default class HeadTag extends Component {
     this.setState({ canUseDOM: true });
 
     const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
-    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}[data-reactroot=""]`);
+    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}[data-rh=""]`);
 
     /* istanbul ignore else */
     if (ssrTags) {
@@ -36,15 +36,15 @@ export default class HeadTag extends Component {
   render() {
     const { tag: Tag, ...rest } = this.props;
 
-    const Comp = <Tag {...rest} />;
-
     if (this.state.canUseDOM) {
+      const Comp = <Tag {...rest} />;
       return ReactDOM.createPortal(Comp, document.head);
     }
 
     // on client we don't require HeadCollector
     if (this.context.reactHeadTags) {
-      this.context.reactHeadTags.add(Comp);
+      const ServerComp = <Tag data-rh="" {...rest} />;
+      this.context.reactHeadTags.add(ServerComp);
     }
 
     return null;
