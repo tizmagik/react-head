@@ -3,7 +3,9 @@
   "version": "2.0.0",
   "description": "SSR-ready Document Head management for React 16+",
   "main": "build/index.js",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "scripts": {
     "prepare": "npm run lint && npm run test && npm run build",
     "build": "babel --out-dir build src --ignore src/__tests__",
@@ -20,7 +22,13 @@
     "type": "git",
     "url": "git+https://github.com/tizmagik/react-head.git"
   },
-  "keywords": ["react", "head", "portals", "ssr", "isomorphic"],
+  "keywords": [
+    "react",
+    "head",
+    "portals",
+    "ssr",
+    "isomorphic"
+  ],
   "author": "Jeremy Gayed (https://github.com/tizmagik)",
   "license": "MIT",
   "bugs": {
@@ -42,13 +50,13 @@
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.4.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
-    "lint-staged": "^4.2.3",
+    "lint-staged": "^7.1.0",
     "npm-run-all": "^4.1.1",
-    "prettier": "^1.7.4",
+    "prettier": "^1.12.1",
     "prop-types": "^15.6.0",
     "raf": "^3.4.0",
     "react": "^16.0.0",
@@ -61,11 +69,20 @@
     "prop-types": ">=15"
   },
   "jest": {
-    "roots": ["./src"],
-    "setupFiles": ["raf/polyfill", "./utils/setup"]
+    "roots": [
+      "./src"
+    ],
+    "setupFiles": [
+      "raf/polyfill",
+      "./utils/setup"
+    ]
   },
   "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"]
+    "*.{js}": [
+      "prettier --write",
+      "npm run lint -- --fix",
+      "git add"
+    ]
   },
   "prettier": {
     "trailingComma": "es5",
