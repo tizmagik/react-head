@@ -8,6 +8,24 @@ Array [
   >
     No render
   </test>,
+  <title
+    data-rh=""
+  >
+    Title
+  </title>,
+  <style
+    data-rh=""
+  >
+    * {}
+  </style>,
+  <link
+    data-rh=""
+    href="index.css"
+  />,
+  <meta
+    charset="utf-8"
+    data-rh=""
+  />,
 ]
 `;
 
