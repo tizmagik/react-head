@@ -14,7 +14,7 @@ document.head.querySelector = qsMock;
 
 describe('HeadTag during client rendering', () => {
   // eslint-disable-next-line global-require
-  const HeadTag = require('../HeadTag').default;
+  const { default: HeadTag, Title, Style, Meta, Link } = require('../');
 
   const Wrapper = ({ children }) => <div>{children}</div>; // eslint-disable-line react/prop-types
   Wrapper.contextTypes = {
@@ -24,8 +24,11 @@ describe('HeadTag during client rendering', () => {
   mount(
     <Wrapper>
       Yes render
-      <HeadTag tag="meta" name="x" content="testing" />
-      <HeadTag tag="title">Test title</HeadTag>
+      <HeadTag tag="test" name="x" content="testing" />
+      <Title>Test title</Title>
+      <Style>{`* {}`}</Style>
+      <Link href="index.css" />
+      <Meta charset="utf-8" />
     </Wrapper>,
     {
       context: {
@@ -37,12 +40,16 @@ describe('HeadTag during client rendering', () => {
   );
 
   it('removes head tags added during ssr', () => {
-    expect(qsMock).toHaveBeenCalledWith('meta[name="x"][content="testing"][data-rh=""]');
+    expect(qsMock).toHaveBeenCalledWith('test[name="x"][content="testing"][data-rh=""]');
     expect(qsMock).toHaveBeenCalledWith('title[data-rh=""]');
-    expect(removeMock).toHaveBeenCalledTimes(2);
+    expect(qsMock).toHaveBeenCalledWith('style[data-rh=""]');
+    expect(qsMock).toHaveBeenCalledWith('link[href="index.css"][data-rh=""]');
+    expect(qsMock).toHaveBeenCalledWith('meta[charset="utf-8"][data-rh=""]');
+    expect(removeMock).toHaveBeenCalledTimes(5);
   });
+
   it('renders into document.head portal', () => {
-    expect(ReactDOMMock.createPortal).toHaveBeenCalledTimes(2);
+    expect(ReactDOMMock.createPortal).toHaveBeenCalledTimes(5);
     expect(ReactDOMMock.createPortal).toHaveBeenCalledWith(expect.any(Object), document.head);
   });
 });

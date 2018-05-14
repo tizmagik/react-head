@@ -1,7 +1,6 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import HeadTag from '../HeadTag';
-import HeadCollector from '../HeadCollector';
+import HeadTag, { HeadCollector, Title, Style, Meta, Link } from '../';
 
 describe('HeadTag during server rendering', () => {
   const arr = [];
@@ -12,6 +11,10 @@ describe('HeadTag during server rendering', () => {
         <HeadTag tag="test" content="testing tag">
           No render
         </HeadTag>
+        <Title>Title</Title>
+        <Style>{`* {}`}</Style>
+        <Link href="index.css" />
+        <Meta charset="utf-8" />
       </div>
     </HeadCollector>,
     {
