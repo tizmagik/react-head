@@ -4,6 +4,9 @@ import HeadTag, { HeadCollector, Title, Style, Meta, Link } from '../';
 
 describe('HeadTag during server rendering', () => {
   const arr = [];
+  const globalCss = `p {
+    color: #121212;
+  }`;
   const markup = renderToStaticMarkup(
     <HeadCollector headTags={arr}>
       <div>
@@ -12,7 +15,7 @@ describe('HeadTag during server rendering', () => {
           No render
         </HeadTag>
         <Title>Title</Title>
-        <Style>{`* {}`}</Style>
+        <Style>{globalCss}</Style>
         <Link href="index.css" />
         <Meta charset="utf-8" />
       </div>
