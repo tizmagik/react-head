@@ -3,9 +3,7 @@
   "version": "2.0.0",
   "description": "SSR-ready Document Head management for React 16+",
   "main": "build/index.js",
-  "files": [
-    "build"
-  ],
+  "files": ["build"],
   "scripts": {
     "prepare": "npm run lint && npm run test && npm run build",
     "build": "babel --out-dir build src --ignore src/__tests__",
@@ -22,13 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/tizmagik/react-head.git"
   },
-  "keywords": [
-    "react",
-    "head",
-    "portals",
-    "ssr",
-    "isomorphic"
-  ],
+  "keywords": ["react", "head", "portals", "ssr", "isomorphic"],
   "author": "Jeremy Gayed (https://github.com/tizmagik)",
   "license": "MIT",
   "bugs": {
@@ -69,24 +61,16 @@
     "prop-types": ">=15"
   },
   "jest": {
-    "roots": [
-      "./src"
-    ],
-    "setupFiles": [
-      "raf/polyfill",
-      "./utils/setup"
-    ]
+    "roots": ["./src"],
+    "setupFiles": ["raf/polyfill", "./utils/setup"]
   },
   "lint-staged": {
-    "*.{js}": [
-      "prettier --write",
-      "npm run lint -- --fix",
-      "git add"
-    ]
+    "*.{json,js}": ["eslint", "prettier --write", "git add"]
   },
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true,
-    "tabWidth": 2
+    "tabWidth": 2,
+    "printWidth": 100
   }
 }
