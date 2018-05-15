@@ -74,6 +74,15 @@ const App = () => (
 )
 ```
 
+### Usage
+
+The following aliases are also available for use (just convenience components that pre-fill the `tag` prop in `<HeadTag />`):
+
+```js
+import HeadTag, { Title, Style, Meta, Link } from 'react-head';
+```
+
+
 ## Contributing
 
 Please follow the [contributing docs](/CONTRIBUTING.md)
