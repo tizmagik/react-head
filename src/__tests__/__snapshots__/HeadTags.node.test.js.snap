@@ -16,7 +16,9 @@ Array [
   <style
     data-rh=""
   >
-    * {}
+    p {
+    color: #121212;
+  }
   </style>,
   <link
     data-rh=""
