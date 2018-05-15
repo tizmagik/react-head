@@ -2,14 +2,15 @@
   "name": "react-head",
   "version": "2.0.0",
   "description": "SSR-ready Document Head management for React 16+",
-  "main": "build/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
     "prepare": "npm run lint && npm run test && npm run build",
-    "build": "babel --out-dir build src --ignore src/__tests__",
-    "build:watch": "npm run build -- --watch",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
     "example": "cd example && npm i && npm start",
     "dev": "run-p build:watch example",
     "pretest": "npm run lint",
@@ -41,7 +42,9 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -63,7 +66,10 @@
     "raf": "^3.4.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "rollup": "^0.59.0",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-size-snapshot": "^0.4.1"
   },
   "peerDependencies": {
     "react": ">=16",
