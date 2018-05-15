@@ -12,13 +12,13 @@ export default [
     input,
     output: { file: pkg.main, format: 'cjs', exports: 'named' },
     external,
-    plugins: [babel({ plugins: ['external-helpers'] }), sizeSnapshot()],
+    plugins: [babel(), sizeSnapshot()],
   },
 
   {
     input,
     output: { file: pkg.module, format: 'es', exports: 'named' },
     external,
-    plugins: [babel({ plugins: ['external-helpers'] }), sizeSnapshot()],
+    plugins: [babel(), sizeSnapshot()],
   },
 ];
