@@ -32,7 +32,10 @@
     "ssr",
     "isomorphic"
   ],
-  "author": "Jeremy Gayed (https://github.com/tizmagik)",
+  "author": "Jeremy Gayed <https://github.com/tizmagik>",
+  "contributors": [
+    "Bogdan Chadkin <trysound@yandex.ru>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tizmagik/react-head/issues"
