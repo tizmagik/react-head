@@ -2,14 +2,15 @@
   "name": "react-head",
   "version": "2.1.0",
   "description": "SSR-ready Document Head management for React 16+",
-  "main": "build/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
     "prepare": "npm run lint && npm run test && npm run build",
-    "build": "babel --out-dir build src --ignore src/__tests__",
-    "build:watch": "npm run build -- --watch",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
     "example": "cd example && npm i && npm start",
     "dev": "run-p build:watch example",
     "pretest": "npm run lint",
@@ -31,20 +32,25 @@
     "ssr",
     "isomorphic"
   ],
-  "author": "Jeremy Gayed (https://github.com/tizmagik)",
+  "author": "Jeremy Gayed <https://github.com/tizmagik>",
+  "contributors": [
+    "Bogdan Chadkin <trysound@yandex.ru>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tizmagik/react-head/issues"
   },
   "homepage": "https://github.com/tizmagik/react-head#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.47",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "@babel/preset-stage-3": "^7.0.0-beta.47",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
@@ -63,7 +69,10 @@
     "raf": "^3.4.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "rollup": "^0.59.0",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-size-snapshot": "^0.4.1"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -91,5 +100,8 @@
     "singleQuote": true,
     "tabWidth": 2,
     "printWidth": 100
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.47"
   }
 }
