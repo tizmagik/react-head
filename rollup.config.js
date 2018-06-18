@@ -6,27 +6,25 @@ import pkg from './package.json';
 const input = './src/index.js';
 
 // treat as external everything from node_modules
-const external = id => !id.startsWith('/') && !id.startsWith('.');
+// const external = id => !id.startsWith('/') && !id.startsWith('.');
 
-const getBabelOptions = ({ useESModules }) => ({
+const babelOptions = {
   babelrc: false,
-  runtimeHelpers: true,
-  plugins: [
-    '@babel/plugin-transform-object-assign',
-    ['@babel/transform-runtime', { polyfill: false, useESModules }],
-  ],
-});
+  plugins: ['@babel/plugin-transform-object-assign'],
+};
+
+const bubleOptions = {
+  objectAssign: 'Object.assign',
+};
+
+const external = ['react', 'react-dom', 'prop-types'];
 
 export default [
   {
     input,
     output: { file: pkg.main, format: 'cjs', exports: 'named' },
     external,
-    plugins: [
-      buble({ objectAssign: 'Object.assign' }),
-      babel(getBabelOptions({ useESModules: false })),
-      sizeSnapshot(),
-    ],
+    plugins: [buble(bubleOptions), babel(babelOptions), sizeSnapshot()],
   },
   {
     input,
@@ -35,10 +33,6 @@ export default [
       format: 'es',
     },
     external,
-    plugins: [
-      buble({ objectAssign: 'Object.assign' }),
-      babel(getBabelOptions({ useESModules: true })),
-      sizeSnapshot(),
-    ],
+    plugins: [buble(bubleOptions), babel(babelOptions), sizeSnapshot()],
   },
 ];

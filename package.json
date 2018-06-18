@@ -103,7 +103,5 @@
     "tabWidth": 2,
     "printWidth": 100
   },
-  "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.47"
-  }
+  "dependencies": {}
 }
