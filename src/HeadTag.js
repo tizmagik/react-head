@@ -4,22 +4,6 @@ import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
-  static contextTypes = {
-    reactHeadTags: PropTypes.object,
-  };
-
-  static propTypes = {
-    tag: PropTypes.string,
-  };
-
-  static defaultProps = {
-    tag: 'meta',
-  };
-
-  state = {
-    canUseDOM: false,
-  };
-
   componentDidMount() {
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ canUseDOM: true });
@@ -50,3 +34,15 @@ export default class HeadTag extends Component {
     return null;
   }
 }
+
+HeadTag.contextTypes = {
+  reactHeadTags: PropTypes.object,
+};
+
+HeadTag.propTypes = {
+  tag: PropTypes.string,
+};
+
+HeadTag.defaultProps = {
+  tag: 'meta',
+};

@@ -1,16 +1,25 @@
 {
   "dist/index.cjs.js": {
-    "bundled": 5257,
-    "minified": 3527,
-    "gzipped": 1088
+    "bundled": 4055,
+    "minified": 2585,
+    "gzipped": 908
   },
   "dist/index.esm.js": {
-    "bundled": 4692,
-    "minified": 3077,
-    "gzipped": 997,
+    "bundled": 3654,
+    "minified": 2223,
+    "gzipped": 821,
     "treeshaked": {
-      "rollup": 2009,
-      "webpack": 3088
+      "rollup": 1544,
+      "webpack": 2286
+    }
+  },
+  "dist/test.test.js": {
+    "bundled": 3650,
+    "minified": 2219,
+    "gzipped": 816,
+    "treeshaked": {
+      "rollup": 1540,
+      "webpack": 2282
     }
   }
 }
