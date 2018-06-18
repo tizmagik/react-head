@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
+  constructor() {
+    super();
+    this.state = {
+      canUseDOM: false,
+    };
+  }
   componentDidMount() {
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ canUseDOM: true });
@@ -19,7 +25,6 @@ export default class HeadTag extends Component {
 
   render() {
     const { tag: Tag, ...rest } = this.props;
-
     if (this.state.canUseDOM) {
       const Comp = <Tag {...rest} />;
       return ReactDOM.createPortal(Comp, document.head);
@@ -34,14 +39,19 @@ export default class HeadTag extends Component {
     return null;
   }
 }
+// eslint-disable-next-line no-unused-expressions
+process.env.NODE_ENV !== 'production'
+  ? (HeadTag.contextTypes = {
+      reactHeadTags: PropTypes.object,
+    })
+  : undefined;
 
-HeadTag.contextTypes = {
-  reactHeadTags: PropTypes.object,
-};
-
-HeadTag.propTypes = {
-  tag: PropTypes.string,
-};
+// eslint-disable-next-line no-unused-expressions
+process.env.NODE_ENV !== 'production'
+  ? (HeadTag.propTypes = {
+      tag: PropTypes.string,
+    })
+  : undefined;
 
 HeadTag.defaultProps = {
   tag: 'meta',
