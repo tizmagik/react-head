@@ -56,3 +56,11 @@ process.env.NODE_ENV !== 'production'
 HeadTag.defaultProps = {
   tag: 'meta',
 };
+
+export const Title = props => <HeadTag tag="title" {...props} />;
+
+export const Style = props => <HeadTag tag="style" {...props} />;
+
+export const Meta = props => <HeadTag tag="meta" {...props} />;
+
+export const Link = props => <HeadTag tag="link" {...props} />;
