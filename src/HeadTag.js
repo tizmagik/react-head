@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
-  static contextTypes = {
-    reactHeadTags: PropTypes.object,
-  };
-
   static propTypes = {
     tag: PropTypes.string,
+  };
+
+  static contextTypes = {
+    reactHeadTags: PropTypes.object,
   };
 
   static defaultProps = {
