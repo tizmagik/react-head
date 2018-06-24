@@ -4,6 +4,7 @@ module.exports = {
     ['@babel/stage-3', { loose: true }],
     '@babel/react',
   ],
+  plugins: [['transform-react-remove-prop-types', { mode: 'wrap' }]],
   env: {
     test: {
       plugins: ['@babel/transform-modules-commonjs'],
