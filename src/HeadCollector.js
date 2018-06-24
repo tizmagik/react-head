@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Provider } from './headTagsContext';
 
 export default class HeadCollector extends Component {
   static propTypes = {
@@ -7,19 +8,11 @@ export default class HeadCollector extends Component {
     children: PropTypes.node.isRequired,
   };
 
-  static childContextTypes = {
-    reactHeadTags: PropTypes.object,
+  headTags = {
+    add: tag => this.props.headTags.push(tag),
   };
 
-  getChildContext() {
-    return {
-      reactHeadTags: {
-        add: c => this.props.headTags.push(c),
-      },
-    };
-  }
-
   render() {
-    return React.Children.only(this.props.children);
+    return <Provider value={this.headTags}>{React.Children.only(this.props.children)}</Provider>;
   }
 }
