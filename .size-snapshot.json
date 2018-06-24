@@ -1,16 +1,16 @@
 {
   "dist/index.cjs.js": {
-    "bundled": 5257,
-    "minified": 3527,
-    "gzipped": 1088
+    "bundled": 4556,
+    "minified": 2831,
+    "gzipped": 994
   },
-  "dist/index.esm.js": {
-    "bundled": 4692,
-    "minified": 3077,
-    "gzipped": 997,
+  "dist/HeadTag.js": {
+    "bundled": 3213,
+    "minified": 1926,
+    "gzipped": 779,
     "treeshaked": {
-      "rollup": 2009,
-      "webpack": 3088
+      "rollup": 1170,
+      "webpack": 1851
     }
   }
 }

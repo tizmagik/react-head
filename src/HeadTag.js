@@ -4,22 +4,12 @@ import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
 
 export default class HeadTag extends Component {
-  static contextTypes = {
-    reactHeadTags: PropTypes.object,
-  };
-
-  static propTypes = {
-    tag: PropTypes.string,
-  };
-
-  static defaultProps = {
-    tag: 'meta',
-  };
-
-  state = {
-    canUseDOM: false,
-  };
-
+  constructor() {
+    super();
+    this.state = {
+      canUseDOM: false,
+    };
+  }
   componentDidMount() {
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ canUseDOM: true });
@@ -35,7 +25,6 @@ export default class HeadTag extends Component {
 
   render() {
     const { tag: Tag, ...rest } = this.props;
-
     if (this.state.canUseDOM) {
       const Comp = <Tag {...rest} />;
       return ReactDOM.createPortal(Comp, document.head);
@@ -50,3 +39,28 @@ export default class HeadTag extends Component {
     return null;
   }
 }
+// eslint-disable-next-line no-unused-expressions
+process.env.NODE_ENV !== 'production'
+  ? (HeadTag.contextTypes = {
+      reactHeadTags: PropTypes.object,
+    })
+  : undefined;
+
+// eslint-disable-next-line no-unused-expressions
+process.env.NODE_ENV !== 'production'
+  ? (HeadTag.propTypes = {
+      tag: PropTypes.string,
+    })
+  : undefined;
+
+HeadTag.defaultProps = {
+  tag: 'meta',
+};
+
+export const Title = props => <HeadTag tag="title" {...props} />;
+
+export const Style = props => <HeadTag tag="style" {...props} />;
+
+export const Meta = props => <HeadTag tag="meta" {...props} />;
+
+export const Link = props => <HeadTag tag="link" {...props} />;

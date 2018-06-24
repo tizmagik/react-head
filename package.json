@@ -4,6 +4,7 @@
   "description": "SSR-ready Document Head management for React 16+",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.47",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.47",
+    "@babel/plugin-transform-object-assign": "^7.0.0-beta.51",
     "@babel/plugin-transform-runtime": "^7.0.0-beta.47",
     "@babel/preset-env": "^7.0.0-beta.47",
     "@babel/preset-react": "^7.0.0-beta.47",
@@ -72,6 +74,7 @@
     "react-test-renderer": "^16.3.2",
     "rollup": "^0.59.0",
     "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-size-snapshot": "^0.4.1"
   },
   "peerDependencies": {
@@ -101,7 +104,5 @@
     "tabWidth": 2,
     "printWidth": 100
   },
-  "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.47"
-  }
+  "dependencies": {}
 }
