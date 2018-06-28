@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import HeadCollector from '../HeadCollector';
-import HeadTag from '../HeadTag';
+import { HeadCollector, HeadTag } from '../';
 
 describe('HeadCollector', () => {
   it('adds HeadTags to given array from component tree', () => {

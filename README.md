@@ -62,7 +62,7 @@ There is nothing special required on the client, just render `<HeadTag />` compo
 
 ```js
 import React from 'react';
-import HeadTag from 'react-head';
+import { HeadTag } from 'react-head';
 
 const App = () => (
    <div className="Home">
@@ -79,9 +79,8 @@ const App = () => (
 The following aliases are also available for use (just convenience components that pre-fill the `tag` prop in `<HeadTag />`):
 
 ```js
-import HeadTag, { Title, Style, Meta, Link } from 'react-head';
+import { HeadTag, Title, Style, Meta, Link } from 'react-head';
 ```
-
 
 ## Contributing
 

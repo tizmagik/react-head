@@ -14,7 +14,7 @@ document.head.querySelector = qsMock;
 
 describe('HeadTag during client rendering', () => {
   // eslint-disable-next-line global-require
-  const { default: HeadTag, Title, Style, Meta, Link } = require('../');
+  const { HeadTag, Title, Style, Meta, Link } = require('../');
   const globalCss = `p {
     color: #121212;
   }`;
