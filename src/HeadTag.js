@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
+import { Consumer } from './headTagsContext';
 
 export default class HeadTag extends Component {
   static propTypes = {
     tag: PropTypes.string,
-  };
-
-  static contextTypes = {
-    reactHeadTags: PropTypes.object,
   };
 
   static defaultProps = {
@@ -41,12 +38,13 @@ export default class HeadTag extends Component {
       return ReactDOM.createPortal(Comp, document.head);
     }
 
-    // on client we don't require HeadCollector
-    if (this.context.reactHeadTags) {
-      const ServerComp = <Tag data-rh="" {...rest} />;
-      this.context.reactHeadTags.add(ServerComp);
-    }
-
-    return null;
+    return (
+      <Consumer>
+        {headTags => {
+          const ServerComp = <Tag data-rh="" {...rest} />;
+          headTags.add(ServerComp);
+        }}
+      </Consumer>
+    );
   }
 }
