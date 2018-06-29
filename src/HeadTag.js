@@ -6,11 +6,7 @@ import { Consumer } from './headTagsContext';
 
 export default class HeadTag extends Component {
   static propTypes = {
-    tag: PropTypes.string,
-  };
-
-  static defaultProps = {
-    tag: 'meta',
+    tag: PropTypes.string.isRequired,
   };
 
   state = {

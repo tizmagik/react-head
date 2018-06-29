@@ -11,4 +11,4 @@ export const Link = props => <HeadTag tag="link" {...props} />;
 
 export { default as HeadCollector } from './HeadCollector';
 
-export default HeadTag;
+export { HeadTag };
