@@ -13,6 +13,10 @@ export default class HeadCollector extends Component {
   };
 
   render() {
-    return <Provider value={this.headTags}>{React.Children.only(this.props.children)}</Provider>;
+    return (
+      <Provider value={this.headTags}>
+        {React.Children.only(this.props.children)}
+      </Provider>
+    );
   }
 }

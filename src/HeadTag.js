@@ -18,7 +18,9 @@ export default class HeadTag extends Component {
     this.setState({ canUseDOM: true });
 
     const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
-    const ssrTags = document.head.querySelector(`${tag}${buildSelector(rest)}[data-rh=""]`);
+    const ssrTags = document.head.querySelector(
+      `${tag}${buildSelector(rest)}[data-rh=""]`
+    );
 
     /* istanbul ignore else */
     if (ssrTags) {
