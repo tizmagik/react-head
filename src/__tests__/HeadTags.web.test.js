@@ -43,7 +43,9 @@ describe('HeadTag during client rendering', () => {
   );
 
   it('removes head tags added during ssr', () => {
-    expect(qsMock).toHaveBeenCalledWith('test[name="x"][content="testing"][data-rh=""]');
+    expect(qsMock).toHaveBeenCalledWith(
+      'test[name="x"][content="testing"][data-rh=""]'
+    );
     expect(qsMock).toHaveBeenCalledWith('title[data-rh=""]');
     expect(qsMock).toHaveBeenCalledWith('style[data-rh=""]');
     expect(qsMock).toHaveBeenCalledWith('link[href="index.css"][data-rh=""]');
@@ -53,6 +55,9 @@ describe('HeadTag during client rendering', () => {
 
   it('renders into document.head portal', () => {
     expect(ReactDOMMock.createPortal).toHaveBeenCalledTimes(5);
-    expect(ReactDOMMock.createPortal).toHaveBeenCalledWith(expect.any(Object), document.head);
+    expect(ReactDOMMock.createPortal).toHaveBeenCalledWith(
+      expect.any(Object),
+      document.head
+    );
   });
 });

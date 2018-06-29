@@ -21,7 +21,7 @@
     "test:watch": "jest --watch",
     "typecheck:flow": "flow check --max-warnings=0",
     "lint": "eslint ./src",
-    "prettier": "prettier --write ./src/**/*.js",
+    "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
   "repository": {
@@ -98,15 +98,13 @@
   },
   "lint-staged": {
     "*.{json,js}": [
-      "eslint",
       "prettier --write",
+      "eslint",
       "git add"
     ]
   },
   "prettier": {
     "trailingComma": "es5",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "printWidth": 100
+    "singleQuote": true
   }
 }
