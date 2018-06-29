@@ -12,15 +12,6 @@
 			{
 				"extensions": [ ".js", ".jsx" ]
 			}
-		],
-		"prettier/prettier": [
-			"error",
-			{
-				"printWidth": 100,
-				"semi": true,
-				"singleQuote": true,
-				"trailingComma": "es5"
-			}
 		]
 	}
 }
