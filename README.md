@@ -29,7 +29,7 @@ On the server, the tags are collected in the `headTags[]` array, and then on the
 Wrap your app with `<HeadCollector />` on the server with a given `headTags[]` array to pass down as part of your server-rendered payload.
 
 ```js
-import React from 'react';
+import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { HeadCollector } from 'react-head';
 import App from './App';
@@ -61,7 +61,7 @@ res.send(`
 There is nothing special required on the client, just render `<HeadTag />` components whenever you want to inject a tag in the `<head />`.
 
 ```js
-import React from 'react';
+import * as React from 'react';
 import { HeadTag } from 'react-head';
 
 const App = () => (

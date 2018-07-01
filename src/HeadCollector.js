@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './headTagsContext';
 
-export default class HeadCollector extends Component {
+export default class HeadCollector extends React.Component {
   static propTypes = {
     headTags: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
     children: PropTypes.node.isRequired,
