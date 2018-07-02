@@ -5,18 +5,21 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
+    "src",
     "dist"
   ],
   "scripts": {
     "prepare": "npm run lint && npm run test && npm run build",
-    "build": "rollup -c",
+    "build:flow": "echo \"// @flow\n\nexport * from '../src'\" > dist/index.cjs.js.flow",
     "build:watch": "rollup -c --watch",
+    "build": "rollup -c && npm run build:flow",
     "example": "cd example && npm i && npm start",
     "dev": "run-p build:watch example",
     "pretest": "npm run lint",
     "test": "jest",
     "posttest": "npm run build",
     "test:watch": "jest --watch",
+    "typecheck:flow": "flow check --max-warnings=0",
     "lint": "eslint ./src",
     "prettier": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
@@ -61,6 +64,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
+    "flow-bin": "^0.75.0",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "lint-staged": "^7.1.0",
