@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import buildSelector from './buildSelector';
 import { Consumer } from './headTagsContext';
 
-export default class HeadTag extends Component {
+export default class HeadTag extends React.Component {
   static propTypes = {
     tag: PropTypes.string.isRequired,
   };

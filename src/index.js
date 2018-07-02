@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import HeadTag from './HeadTag';
 
 export const Title = props => <HeadTag tag="title" {...props} />;
