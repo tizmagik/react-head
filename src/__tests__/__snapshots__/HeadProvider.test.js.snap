@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeadCollector adds HeadTags to given array from component tree 1`] = `
+exports[`HeadProvider adds HeadTags to given array from component tree 1`] = `
 Array [
   <tag1
     another="value1"
