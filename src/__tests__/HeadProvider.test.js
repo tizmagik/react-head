@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { render } from 'enzyme';
-import { HeadCollector, HeadTag } from '../';
+import { HeadProvider, HeadTag } from '../';
 
-describe('HeadCollector', () => {
+describe('HeadProvider', () => {
   it('adds HeadTags to given array from component tree', () => {
     const arr = [];
     render(
-      <HeadCollector headTags={arr}>
+      <HeadProvider headTags={arr}>
         <div>
           <HeadTag tag="tag1" name="name1" another="value1" />
           <HeadTag tag="tag2" test="test2" third="value2" />
         </div>
-      </HeadCollector>
+      </HeadProvider>
     );
 
     expect(arr.length).toBe(2);

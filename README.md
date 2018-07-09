@@ -16,7 +16,7 @@ npm i react-head
 
 ## How it works
 
-1. On the server, you wrap your App in `<HeadCollector />` with a given `headTags[]` array
+1. On the server, you wrap your App in `<HeadProvider />` with a given `headTags[]` array
 1. Then call `renderToString(headTags)` and include in the `<head />` block of your server template
 1. To insert head tags within your app, just render `<HeadTag />` components as often as needed.
 
@@ -26,12 +26,12 @@ On the server, the tags are collected in the `headTags[]` array, and then on the
 
 ### Server setup
 
-Wrap your app with `<HeadCollector />` on the server with a given `headTags[]` array to pass down as part of your server-rendered payload.
+Wrap your app with `<HeadProvider />` on the server with a given `headTags[]` array to pass down as part of your server-rendered payload.
 
 ```js
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-import { HeadCollector } from 'react-head';
+import { HeadProvider } from 'react-head';
 import App from './App';
 
 // ... within the context of a request ...
@@ -39,9 +39,9 @@ import App from './App';
 const context = {};
 const headTags = [];
 const app = renderToString(
-  <HeadCollector headTags={headTags}>
+  <HeadProvider headTags={headTags}>
     <App />
-  </HeadCollector>
+  </HeadProvider>
 );
 
 res.send(`
