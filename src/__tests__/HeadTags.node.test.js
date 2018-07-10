@@ -19,18 +19,13 @@ describe('HeadTag during server rendering', () => {
         <Link href="index.css" />
         <Meta charset="utf-8" />
       </div>
-    </HeadProvider>,
-    {
-      context: {
-        reactHeadTags: {
-          add: c => arr.push(c),
-        },
-      },
-    }
+    </HeadProvider>
   );
+
   it('renders nothing', () => {
     expect(markup).toMatchSnapshot();
   });
+
   it('adds tags to headTags context array', () => {
     expect(arr).toMatchSnapshot();
   });

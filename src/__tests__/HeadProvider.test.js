@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { render } from 'enzyme';
-import { HeadProvider, HeadTag } from '../';
+import TestRenderer from 'react-test-renderer';
+
+jest.setMock('react-dom', {
+  createPortal: children => <>{children}</>,
+});
 
 describe('HeadProvider', () => {
+  const { HeadProvider, HeadTag } = require('../');
+
   it('adds HeadTags to given array from component tree', () => {
     const arr = [];
-    render(
+    TestRenderer.create(
       <HeadProvider headTags={arr}>
         <div>
           <HeadTag tag="tag1" name="name1" another="value1" />

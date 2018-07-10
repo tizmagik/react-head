@@ -14,15 +14,13 @@ export default class HeadTag extends React.Component {
   };
 
   componentDidMount() {
-    // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ canUseDOM: true });
 
-    const { tag, children, ...rest } = this.props; // eslint-disable-line react/prop-types
+    const { tag, children, ...rest } = this.props;
     const ssrTags = document.head.querySelector(
       `${tag}${buildSelector(rest)}[data-rh=""]`
     );
 
-    /* istanbul ignore else */
     if (ssrTags) {
       ssrTags.remove();
     }
