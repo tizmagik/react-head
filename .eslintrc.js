@@ -7,7 +7,10 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'global-require': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/forbid-prop-types': 0,
+    'react/prop-types': 0,
+    'react/no-did-mount-set-state': 0,
   },
 };
