@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeadTag during server rendering adds tags to headTags context array 1`] = `
+exports[`HeadTag during server rendering render only the last title 1`] = `
+Array [
+  <title
+    data-rh=""
+  >
+    Title 3
+  </title>,
+]
+`;
+
+exports[`HeadTag during server rendering renders nothing and adds tags to headTags context array 1`] = `"<div>Yes render</div>"`;
+
+exports[`HeadTag during server rendering renders nothing and adds tags to headTags context array 2`] = `
 Array [
   <test
     content="testing tag"
@@ -17,8 +29,8 @@ Array [
     data-rh=""
   >
     p {
-    color: #121212;
-  }
+      color: #121212;
+    }
   </style>,
   <link
     data-rh=""
@@ -30,5 +42,3 @@ Array [
   />,
 ]
 `;
-
-exports[`HeadTag during server rendering renders nothing 1`] = `"<div>Yes render</div>"`;

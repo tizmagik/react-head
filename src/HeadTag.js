@@ -13,6 +13,9 @@ export default class HeadTag extends React.Component {
     canUseDOM: false,
   };
 
+  headTags = null;
+  index = -1;
+
   componentDidMount() {
     this.setState({ canUseDOM: true });
 
@@ -24,21 +27,31 @@ export default class HeadTag extends React.Component {
     if (ssrTags) {
       ssrTags.remove();
     }
+    this.index = this.headTags.addClientTag(tag);
   }
 
   render() {
     const { tag: Tag, ...rest } = this.props;
 
-    if (this.state.canUseDOM) {
-      const Comp = <Tag {...rest} />;
-      return ReactDOM.createPortal(Comp, document.head);
-    }
-
     return (
       <Consumer>
         {headTags => {
+          this.headTags = headTags;
+
+          if (this.state.canUseDOM) {
+            if (
+              Tag === 'title' &&
+              headTags.list.lastIndexOf(Tag) !== this.index
+            ) {
+              return null;
+            }
+            const ClientComp = <Tag {...rest} />;
+            return ReactDOM.createPortal(ClientComp, document.head);
+          }
+
           const ServerComp = <Tag data-rh="" {...rest} />;
-          headTags.add(ServerComp);
+          headTags.addServerTag(ServerComp);
+          return null;
         }}
       </Consumer>
     );

@@ -2,7 +2,7 @@ import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
 
 const ReactDOMMock = {
-  createPortal: jest.fn(() => 'createPortal'),
+  createPortal: jest.fn(children => <>{children}</>),
 };
 jest.setMock('react-dom', ReactDOMMock);
 const removeMock = jest.fn();
@@ -12,7 +12,7 @@ const qsMock = jest.fn(() => ({
 document.head.querySelector = qsMock;
 
 describe('HeadTag during client rendering', () => {
-  const { HeadTag, Title, Style, Meta, Link } = require('../');
+  const { HeadProvider, HeadTag, Title, Style, Meta, Link } = require('../');
   const globalCss = `p {
     color: #121212;
   }`;
@@ -45,5 +45,22 @@ describe('HeadTag during client rendering', () => {
       expect.any(Object),
       document.head
     );
+  });
+
+  it('renders only the last title', () => {
+    const renderer = TestRenderer.create(
+      <HeadProvider headTags={[]}>
+        <div>
+          <Title>Title 1</Title>
+        </div>
+        <div>
+          <Title>Title 2</Title>
+        </div>
+        <div>
+          <Title>Title 3</Title>
+        </div>
+      </HeadProvider>
+    );
+    expect(renderer.toJSON()).toMatchSnapshot();
   });
 });

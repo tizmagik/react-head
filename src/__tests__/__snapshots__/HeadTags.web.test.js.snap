@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeadTag during client rendering renders only the last title 1`] = `
+Array [
+  <div />,
+  <div />,
+  <div>
+    <title>
+      Title 3
+    </title>
+  </div>,
+]
+`;
