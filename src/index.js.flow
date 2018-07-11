@@ -4,7 +4,7 @@ import * as React from 'react';
 
 type Attributes = { [string]: mixed };
 
-declare export var HeadCollector: React.ComponentType<{
+declare export var HeadProvider: React.ComponentType<{
   headTags: Array<React.Element<>>,
   children: React.Node,
 }>;
