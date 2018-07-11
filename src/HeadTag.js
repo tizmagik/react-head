@@ -30,6 +30,10 @@ export default class HeadTag extends React.Component {
     this.index = this.headTags.addClientTag(tag);
   }
 
+  componentWillUnmount() {
+    this.headTags.removeClientTag(this.index);
+  }
+
   render() {
     const { tag: Tag, ...rest } = this.props;
 

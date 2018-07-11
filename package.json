@@ -71,6 +71,7 @@
     "raf": "^3.4.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-powerplug": "^1.0.0-rc.1",
     "react-test-renderer": "^16.4.1",
     "rollup": "^0.61.2",
     "rollup-plugin-babel": "^4.0.0-beta.7",

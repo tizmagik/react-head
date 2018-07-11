@@ -19,6 +19,13 @@ export default class HeadProvider extends React.Component {
       this.index += 1;
       return this.index;
     },
+    removeClientTag: index => {
+      this.setState(state => {
+        const list = [...state.list];
+        list[index] = null;
+        return { list };
+      });
+    },
     addServerTag: tag => {
       const { headTags } = this.props;
       if (tag.type === 'title') {

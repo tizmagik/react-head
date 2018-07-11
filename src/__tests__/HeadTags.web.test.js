@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as plug from 'react-powerplug';
 import TestRenderer from 'react-test-renderer';
 
 const ReactDOMMock = {
@@ -61,6 +62,57 @@ describe('HeadTag during client rendering', () => {
         </div>
       </HeadProvider>
     );
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('mounts and unmounts title', () => {
+    const renderer = TestRenderer.create(
+      <HeadProvider headTags={[]}>
+        <Title>Static</Title>
+        <plug.Toggle initial={false}>
+          {title => (
+            <>
+              {title.on && <Title>Dynamic</Title>}
+              <button onClick={title.toggle}>toggle</button>
+            </>
+          )}
+        </plug.Toggle>
+      </HeadProvider>
+    );
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // mount
+    renderer.root.findByType('button').props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // unmount
+    renderer.root.findByType('button').props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('switches between titles', () => {
+    const renderer = TestRenderer.create(
+      <HeadProvider headTags={[]}>
+        <Title>Static</Title>
+        <plug.Value initial={null}>
+          {title => (
+            <>
+              {title.value === 0 && <Title>Title 1</Title>}
+              <button onClick={() => title.set(0)}>0</button>
+              {title.value === 1 && <Title>Title 2</Title>}
+              <button onClick={() => title.set(1)}>1</button>
+            </>
+          )}
+        </plug.Value>
+      </HeadProvider>
+    );
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // enable 0
+    renderer.root.findAllByType('button')[0].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // switch to 1
+    renderer.root.findAllByType('button')[1].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // switch to 0
+    renderer.root.findAllByType('button')[0].props.onClick();
     expect(renderer.toJSON()).toMatchSnapshot();
   });
 });
