@@ -12,5 +12,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/prop-types': 0,
     'react/no-did-mount-set-state': 0,
+    'react/sort-comp': 0,
+    'react/no-unused-state': 0,
   },
 };

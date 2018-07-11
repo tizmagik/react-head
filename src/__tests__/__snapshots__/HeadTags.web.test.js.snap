@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeadTag during client rendering mounts and unmounts title 1`] = `
+Array [
+  <title>
+    Static
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering mounts and unmounts title 2`] = `
+Array [
+  <title>
+    Dynamic
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering mounts and unmounts title 3`] = `
+Array [
+  <title>
+    Static
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering renders only the last title 1`] = `
+Array [
+  <div />,
+  <div />,
+  <div>
+    <title>
+      Title 3
+    </title>
+  </div>,
+]
+`;
+
+exports[`HeadTag during client rendering switches between titles 1`] = `
+Array [
+  <title>
+    Static
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    0
+  </button>,
+  <button
+    onClick={[Function]}
+  >
+    1
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering switches between titles 2`] = `
+Array [
+  <title>
+    Title 1
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    0
+  </button>,
+  <button
+    onClick={[Function]}
+  >
+    1
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering switches between titles 3`] = `
+Array [
+  <button
+    onClick={[Function]}
+  >
+    0
+  </button>,
+  <title>
+    Title 2
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    1
+  </button>,
+]
+`;
+
+exports[`HeadTag during client rendering switches between titles 4`] = `
+Array [
+  <title>
+    Title 1
+  </title>,
+  <button
+    onClick={[Function]}
+  >
+    0
+  </button>,
+  <button
+    onClick={[Function]}
+  >
+    1
+  </button>,
+]
+`;

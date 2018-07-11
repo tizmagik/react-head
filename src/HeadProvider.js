@@ -8,15 +8,37 @@ export default class HeadProvider extends React.Component {
     children: PropTypes.node.isRequired,
   };
 
-  headTags = {
-    add: tag => this.props.headTags.push(tag),
+  index = -1;
+
+  state = {
+    list: [],
+    addClientTag: tag => {
+      this.setState(state => ({
+        list: [...state.list, tag],
+      }));
+      this.index += 1;
+      return this.index;
+    },
+    removeClientTag: index => {
+      this.setState(state => {
+        const list = [...state.list];
+        list[index] = null;
+        return { list };
+      });
+    },
+    addServerTag: tag => {
+      const { headTags } = this.props;
+      if (tag.type === 'title') {
+        const index = headTags.findIndex(prev => prev.type === 'title');
+        if (index !== -1) {
+          headTags.splice(index, 1);
+        }
+      }
+      headTags.push(tag);
+    },
   };
 
   render() {
-    return (
-      <Provider value={this.headTags}>
-        {React.Children.only(this.props.children)}
-      </Provider>
-    );
+    return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }
