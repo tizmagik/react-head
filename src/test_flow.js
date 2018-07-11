@@ -1,12 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { HeadCollector, HeadTag, Title, Style, Meta, Link } from '../';
+import { HeadProvider, HeadTag, Title, Style, Meta, Link } from '../';
 
 [
-  <HeadCollector headTags={[]}>
+  <HeadProvider headTags={[]}>
     <div />
-  </HeadCollector>,
+  </HeadProvider>,
   // $FlowFixMe
   <HeadCollector headTags={[]} />,
   // $FlowFixMe
