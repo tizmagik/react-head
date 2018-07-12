@@ -12,7 +12,7 @@ const qsMock = jest.fn(() => ({
 }));
 document.head.querySelector = qsMock;
 
-describe('HeadTag during client rendering', () => {
+describe('HeadTag during client', () => {
   const { HeadProvider, HeadTag, Title, Style, Meta, Link } = require('../');
   const globalCss = `p {
     color: #121212;
@@ -112,6 +112,44 @@ describe('HeadTag during client rendering', () => {
     renderer.root.findAllByType('button')[1].props.onClick();
     expect(renderer.toJSON()).toMatchSnapshot();
     // switch to 0
+    renderer.root.findAllByType('button')[0].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders only the last meta with the same name', () => {
+    const renderer = TestRenderer.create(
+      <HeadProvider headTags={[]}>
+        <Meta>Static 1</Meta>
+        <Meta name="name1">Static 2</Meta>
+        <plug.Toggle initial={false}>
+          {meta => (
+            <>
+              {meta.on && <Meta name="name1">Dynamic 1</Meta>}
+              <button onClick={meta.toggle}>toggle</button>
+            </>
+          )}
+        </plug.Toggle>
+        <plug.Toggle initial={false}>
+          {meta => (
+            <>
+              {meta.on && <Meta>Dynamic 2</Meta>}
+              <button onClick={meta.toggle}>toggle</button>
+            </>
+          )}
+        </plug.Toggle>
+      </HeadProvider>
+    );
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // mount first
+    renderer.root.findAllByType('button')[0].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // mount second
+    renderer.root.findAllByType('button')[1].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // unmount second
+    renderer.root.findAllByType('button')[1].props.onClick();
+    expect(renderer.toJSON()).toMatchSnapshot();
+    // unmount first
     renderer.root.findAllByType('button')[0].props.onClick();
     expect(renderer.toJSON()).toMatchSnapshot();
   });

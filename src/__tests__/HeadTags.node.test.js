@@ -2,7 +2,7 @@ import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { HeadProvider, HeadTag, Title, Style, Meta, Link } from '../';
 
-describe('HeadTag during server rendering', () => {
+describe('HeadTag during server', () => {
   it('renders nothing and adds tags to headTags context array', () => {
     const arr = [];
     const globalCss = `p {
@@ -26,7 +26,7 @@ describe('HeadTag during server rendering', () => {
     expect(arr).toMatchSnapshot();
   });
 
-  it('render only the last title', () => {
+  it('renders only the last title', () => {
     const arr = [];
     renderToStaticMarkup(
       <HeadProvider headTags={arr}>
@@ -39,6 +39,21 @@ describe('HeadTag during server rendering', () => {
         <div>
           <Title>Title 3</Title>
         </div>
+      </HeadProvider>
+    );
+    expect(arr).toMatchSnapshot();
+  });
+
+  it('renders only the last meta with the same name', () => {
+    const arr = [];
+    renderToStaticMarkup(
+      <HeadProvider headTags={arr}>
+        <Meta>Meta 1</Meta>
+        <Meta>Meta 2</Meta>
+        <Meta name="1">Meta 3</Meta>
+        <Meta name="2">Meta 4</Meta>
+        <Meta name="3">Meta 5</Meta>
+        <Meta name="2">Meta 6</Meta>
       </HeadProvider>
     );
     expect(arr).toMatchSnapshot();
