@@ -48,7 +48,7 @@ describe('HeadTag during client', () => {
     );
   });
 
-  it.only('renders only the last title', () => {
+  it('renders only the last title', () => {
     const renderer = TestRenderer.create(
       <HeadProvider headTags={[]}>
         <div>
