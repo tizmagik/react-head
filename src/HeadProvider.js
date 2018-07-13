@@ -10,41 +10,55 @@ export default class HeadProvider extends React.Component {
     children: PropTypes.node.isRequired,
   };
 
-  index = -1;
+  indices = new Map();
 
   state = {
-    list: [],
     addClientTag: (tag, name) => {
-      this.setState(state => ({
-        list: [...state.list, `${tag}:${name}`],
-      }));
-      this.index += 1;
-      return this.index;
+      // consider only cascading tags
+      if (cascadingTags.indexOf(tag) !== -1) {
+        this.setState(state => {
+          const names = state[tag] || [];
+          return { [tag]: [...names, name] };
+        });
+        // track indices synchronously
+        const { indices } = this;
+        const index = indices.has(tag) ? indices.get(tag) + 1 : 0;
+        indices.set(tag, index);
+        return index;
+      }
+      return -1;
     },
-    shouldRenderTag: index => {
-      const { list } = this.state;
-      const id = list[index];
-      const [tag] = id.split(':');
-      return cascadingTags.includes(tag) && list.lastIndexOf(id) === index;
+
+    shouldRenderTag: (tag, index) => {
+      const names = this.state[tag];
+      // check if the tag is the last one of similar
+      return names && names.lastIndexOf(names[index]) === index;
     },
-    removeClientTag: index => {
+
+    removeClientTag: (tag, index) => {
       this.setState(state => {
-        const list = [...state.list];
-        list[index] = null;
-        return { list };
+        const names = state[tag];
+        if (names) {
+          names[index] = null;
+          return { [tag]: names };
+        }
+        return null;
       });
     },
-    addServerTag: tag => {
+
+    addServerTag: tagNode => {
       const { headTags } = this.props;
-      if (cascadingTags.includes(tag.type)) {
+      // tweak only cascading tags
+      if (cascadingTags.indexOf(tagNode.type) !== -1) {
         const index = headTags.findIndex(
-          prev => prev.type === tag.type && prev.props.name === tag.props.name
+          prev =>
+            prev.type === tagNode.type && prev.props.name === tagNode.props.name
         );
         if (index !== -1) {
           headTags.splice(index, 1);
         }
       }
-      headTags.push(tag);
+      headTags.push(tagNode);
     },
   };
 

@@ -31,7 +31,7 @@ export default class HeadTag extends React.Component {
   }
 
   componentWillUnmount() {
-    this.headTags.removeClientTag(this.index);
+    this.headTags.removeClientTag(this.props.tag, this.index);
   }
 
   render() {
@@ -43,7 +43,7 @@ export default class HeadTag extends React.Component {
           this.headTags = headTags;
 
           if (this.state.canUseDOM) {
-            if (!headTags.shouldRenderTag(this.index)) {
+            if (!headTags.shouldRenderTag(Tag, this.index)) {
               return null;
             }
             const ClientComp = <Tag {...rest} />;
