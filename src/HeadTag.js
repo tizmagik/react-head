@@ -27,11 +27,11 @@ export default class HeadTag extends React.Component {
     if (ssrTags) {
       ssrTags.remove();
     }
-    this.index = this.headTags.addClientTag(tag);
+    this.index = this.headTags.addClientTag(tag, rest.name);
   }
 
   componentWillUnmount() {
-    this.headTags.removeClientTag(this.index);
+    this.headTags.removeClientTag(this.props.tag, this.index);
   }
 
   render() {
@@ -43,10 +43,7 @@ export default class HeadTag extends React.Component {
           this.headTags = headTags;
 
           if (this.state.canUseDOM) {
-            if (
-              Tag === 'title' &&
-              headTags.list.lastIndexOf(Tag) !== this.index
-            ) {
+            if (!headTags.shouldRenderTag(Tag, this.index)) {
               return null;
             }
             const ClientComp = <Tag {...rest} />;
