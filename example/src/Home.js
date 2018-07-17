@@ -1,5 +1,5 @@
 import React from 'react';
-import HeadTag, { Style } from 'react-head';
+import { HeadTag, Style } from 'react-head';
 import { Link } from 'react-router-dom';
 import logo from './react.svg';
 import './Home.css';
