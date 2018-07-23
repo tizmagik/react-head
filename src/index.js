@@ -1,5 +1,6 @@
 import * as React from 'react';
 import HeadTag from './HeadTag';
+import HeadProvider from './HeadProvider';
 
 export const Title = props => <HeadTag tag="title" {...props} />;
 
@@ -9,6 +10,6 @@ export const Meta = props => <HeadTag tag="meta" {...props} />;
 
 export const Link = props => <HeadTag tag="link" {...props} />;
 
-export { default as HeadProvider } from './HeadProvider';
+export default HeadProvider;
 
-export { HeadTag };
+export { HeadTag, HeadProvider };
