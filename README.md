@@ -2,6 +2,8 @@
 
 Asynchronous SSR-ready Document Head management for React 16.3+
 
+> 📙Note this documentation is for as-yet unreleased v3 of react-head which you can install with `npm i react-head@next`. You can view [the latest stable v2.2.0 docs here](https://github.com/tizmagik/react-head/tree/v2.2.0).
+
 ## Motivation
 
 This module allows you to define `document.head` tags anywhere in your component hiearchy. The motivations are similar to [react-helmet](https://github.com/nfl/react-helmet) in that you may only have the information for certain tags contextually deep in your component hiearchy. There are no dependencies (it does not use react-side-effects) and it should work fine with asynchronous rendering; the only requirement is React 16.3+.
