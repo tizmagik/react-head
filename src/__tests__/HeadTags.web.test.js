@@ -7,11 +7,23 @@ const ReactDOMMock = {
 };
 jest.setMock('react-dom', ReactDOMMock);
 const removeMock = jest.fn();
-const qsMock = jest.fn(() => [
-  {
-    remove: removeMock,
-  },
-]);
+
+let hasSsrHeads = true;
+const qsMock = jest.fn(() => {
+  if (hasSsrHeads) {
+    hasSsrHeads = false;
+    return [
+      { remove: removeMock },
+      { remove: removeMock },
+      { remove: removeMock },
+      { remove: removeMock },
+      { remove: removeMock },
+      { remove: removeMock },
+    ];
+  }
+  return [];
+});
+
 document.head.querySelectorAll = qsMock;
 
 describe('HeadTag during client', () => {
@@ -33,7 +45,9 @@ describe('HeadTag during client', () => {
 
   it('removes head tags added during ssr', () => {
     expect(qsMock).toHaveBeenCalledWith('[data-rh=""]');
+    expect(qsMock).toHaveBeenCalledTimes(5);
     expect(removeMock).toHaveBeenCalledTimes(5);
+    // first document.head.querySelectorAll removes all ssr nodes, rest just got blank Nodelist
   });
 
   it('renders into document.head portal', () => {
