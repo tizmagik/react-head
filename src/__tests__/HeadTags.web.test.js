@@ -18,7 +18,6 @@ const qsMock = jest.fn(() => {
       { remove: removeMock },
       { remove: removeMock },
       { remove: removeMock },
-      { remove: removeMock },
     ];
   }
   return [];
