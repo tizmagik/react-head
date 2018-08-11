@@ -2,12 +2,12 @@
 
 exports[`HeadProvider adds HeadTags to given array from component tree 1`] = `
 Array [
-  <tag1
+  <style
     another="value1"
     data-rh=""
     name="name1"
   />,
-  <tag2
+  <style
     data-rh=""
     test="test2"
     third="value2"

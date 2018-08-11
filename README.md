@@ -12,15 +12,21 @@ This module allows you to define `document.head` tags anywhere in your component
 
 ## Installation
 
-```
+```sh
 npm i react-head
+```
+
+or
+
+```sh
+yarn add react-head
 ```
 
 ## How it works
 
 1. On the server, you wrap your App in `<HeadProvider />` with a given `headTags[]` array
 1. Then call `renderToString(headTags)` and include in the `<head />` block of your server template
-1. To insert head tags within your app, just render `<HeadTag />` components as often as needed.
+1. To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />` and `<Link />` components as often as needed.
 
 On the server, the tags are collected in the `headTags[]` array, and then on the client the server-generated tags are removed in favor of the client-rendered tags so that SPAs still work as expected (e.g. in cases where subsequent pageloads need to change the head tags).
 
@@ -60,28 +66,20 @@ res.send(`
 
 ### Client setup
 
-There is nothing special required on the client, just render `<HeadTag />` components whenever you want to inject a tag in the `<head />`.
+There is nothing special required on the client, just render one of head tag components whenever you want to inject a tag in the `<head />`.
 
 ```js
 import * as React from 'react';
-import { HeadTag } from 'react-head';
+import { Title, Link, Meta } from 'react-head';
 
 const App = () => (
    <div className="Home">
-      <HeadTag tag="title">Title of page</HeadTag>
-      <HeadTag tag="link" rel="canonical" content="http://jeremygayed.com/" />
-      <HeadTag tag="meta" name="example" content="whatever" />
+      <Title>Title of page</Title>
+      <Link rel="canonical" content="http://jeremygayed.com/" />
+      <Meta name="example" content="whatever" />
       // ...
   </div>
 )
-```
-
-### Usage
-
-The following aliases are also available for use (just convenience components that pre-fill the `tag` prop in `<HeadTag />`):
-
-```js
-import { HeadTag, Title, Style, Meta, Link } from 'react-head';
 ```
 
 ## Contributing

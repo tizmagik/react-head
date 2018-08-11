@@ -6,15 +6,15 @@ jest.setMock('react-dom', {
 });
 
 describe('HeadProvider', () => {
-  const { HeadProvider, HeadTag } = require('../');
+  const { HeadProvider, Style } = require('../');
 
   it('adds HeadTags to given array from component tree', () => {
     const arr = [];
     TestRenderer.create(
       <HeadProvider headTags={arr}>
         <div>
-          <HeadTag tag="tag1" name="name1" another="value1" />
-          <HeadTag tag="tag2" test="test2" third="value2" />
+          <Style name="name1" another="value1" />
+          <Style test="test2" third="value2" />
         </div>
       </HeadProvider>
     );

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { HeadProvider, HeadTag, Title, Style, Meta, Link } from '../';
+import { HeadProvider, Title, Style, Meta, Link } from '../';
 
-describe('HeadTag during server', () => {
+describe('head tag during server', () => {
   it('renders nothing and adds tags to headTags context array', () => {
     const arr = [];
     const globalCss = `p {
@@ -12,9 +12,6 @@ describe('HeadTag during server', () => {
       <HeadProvider headTags={arr}>
         <div>
           Yes render
-          <HeadTag tag="test" content="testing tag">
-            No render
-          </HeadTag>
           <Title>Title</Title>
           <Style>{globalCss}</Style>
           <Link href="index.css" />
