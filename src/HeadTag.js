@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import buildSelector from './buildSelector';
 import { Consumer } from './headTagsContext';
 
 export default class HeadTag extends React.Component {
@@ -19,14 +18,11 @@ export default class HeadTag extends React.Component {
   componentDidMount() {
     this.setState({ canUseDOM: true });
 
-    const { tag, children, ...rest } = this.props;
-    const ssrTags = document.head.querySelector(
-      `${tag}${buildSelector(rest)}[data-rh=""]`
-    );
+    const { tag, ...rest } = this.props;
+    const ssrTags = document.head.querySelectorAll(`[data-rh=""]`);
 
-    if (ssrTags) {
-      ssrTags.remove();
-    }
+    ssrTags.forEach(e => e.remove());
+
     this.index = this.headTags.addClientTag(tag, rest.name);
   }
 
