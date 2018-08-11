@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeadTag during client mounts and unmounts title 1`] = `
+exports[`head tag during client mounts and unmounts title 1`] = `
 Array [
   <title>
     Static
@@ -13,7 +13,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client mounts and unmounts title 2`] = `
+exports[`head tag during client mounts and unmounts title 2`] = `
 Array [
   <title>
     Dynamic
@@ -26,7 +26,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client mounts and unmounts title 3`] = `
+exports[`head tag during client mounts and unmounts title 3`] = `
 Array [
   <title>
     Static
@@ -39,7 +39,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last meta with the same name 1`] = `
+exports[`head tag during client renders only the last meta with the same name 1`] = `
 Array [
   <meta>
     Static 1
@@ -62,7 +62,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last meta with the same name 2`] = `
+exports[`head tag during client renders only the last meta with the same name 2`] = `
 Array [
   <meta>
     Static 1
@@ -85,7 +85,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last meta with the same name 3`] = `
+exports[`head tag during client renders only the last meta with the same name 3`] = `
 Array [
   <meta
     name="name1"
@@ -108,7 +108,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last meta with the same name 4`] = `
+exports[`head tag during client renders only the last meta with the same name 4`] = `
 Array [
   <meta>
     Static 1
@@ -131,7 +131,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last meta with the same name 5`] = `
+exports[`head tag during client renders only the last meta with the same name 5`] = `
 Array [
   <meta>
     Static 1
@@ -154,7 +154,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client renders only the last title 1`] = `
+exports[`head tag during client renders only the last title 1`] = `
 Array [
   <div />,
   <div />,
@@ -166,7 +166,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client switches between titles 1`] = `
+exports[`head tag during client switches between titles 1`] = `
 Array [
   <title>
     Static
@@ -184,7 +184,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client switches between titles 2`] = `
+exports[`head tag during client switches between titles 2`] = `
 Array [
   <title>
     Title 1
@@ -202,7 +202,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client switches between titles 3`] = `
+exports[`head tag during client switches between titles 3`] = `
 Array [
   <button
     onClick={[Function]}
@@ -220,7 +220,7 @@ Array [
 ]
 `;
 
-exports[`HeadTag during client switches between titles 4`] = `
+exports[`head tag during client switches between titles 4`] = `
 Array [
   <title>
     Title 1

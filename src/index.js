@@ -10,5 +10,3 @@ export const Meta = props => <HeadTag tag="meta" {...props} />;
 export const Link = props => <HeadTag tag="link" {...props} />;
 
 export { default as HeadProvider } from './HeadProvider';
-
-export { HeadTag };

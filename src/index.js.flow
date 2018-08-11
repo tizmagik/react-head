@@ -2,19 +2,15 @@
 
 import * as React from 'react';
 
-type Attributes = { [string]: mixed };
-
 declare export var HeadProvider: React.ComponentType<{
   headTags: Array<React.Element<>>,
   children: React.Node,
 }>;
 
-declare export var HeadTag: React.ComponentType<{ tag: string, [string]: mixed }>;
+declare export var Title: React.ComponentType<{ [string]: mixed }>;
 
-declare export var Title: React.ComponentType<Attributes>;
+declare export var Style: React.ComponentType<{ [string]: mixed }>;
 
-declare export var Style: React.ComponentType<Attributes>;
+declare export var Meta: React.ComponentType<{ [string]: mixed }>;
 
-declare export var Meta: React.ComponentType<Attributes>;
-
-declare export var Link: React.ComponentType<Attributes>;
+declare export var Link: React.ComponentType<{ [string]: mixed }>;
