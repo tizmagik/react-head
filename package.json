@@ -44,12 +44,12 @@
   },
   "homepage": "https://github.com/tizmagik/react-head#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.51",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/preset-react": "^7.0.0-beta.51",
-    "@babel/preset-stage-3": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-rc.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-rc.1",
+    "@babel/plugin-transform-runtime": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/preset-react": "^7.0.0-rc.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
@@ -74,12 +74,12 @@
     "react-powerplug": "^1.0.0-rc.1",
     "react-test-renderer": "^16.4.1",
     "rollup": "^0.61.2",
-    "rollup-plugin-babel": "^4.0.0-beta.7",
+    "rollup-plugin-babel": "^4.0.0-beta.8",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-size-snapshot": "^0.5.1"
   },
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.51"
+    "@babel/runtime": "^7.0.0-rc.1"
   },
   "peerDependencies": {
     "react": ">=16.3",
