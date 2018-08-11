@@ -10,7 +10,7 @@ const external = id => !id.startsWith('/') && !id.startsWith('.');
 
 const getBabelOptions = ({ useESModules }) => ({
   runtimeHelpers: true,
-  plugins: [['@babel/transform-runtime', { useBuiltIns: true, useESModules }]],
+  plugins: [['@babel/transform-runtime', { useESModules }]],
 });
 
 const globals = {
