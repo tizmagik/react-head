@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { HeadProvider, Title, Style, Meta, Link } from '../';
@@ -54,5 +58,15 @@ describe('head tag during server', () => {
       </HeadProvider>
     );
     expect(arr).toMatchSnapshot();
+  });
+
+  it('fails if headTags is not passed to <HeadProvider />', () => {
+    expect(() => {
+      renderToStaticMarkup(
+        <HeadProvider>
+          <Style>{`body {}`}</Style>
+        </HeadProvider>
+      );
+    }).toThrowError(/headTags should be passed/);
   });
 });

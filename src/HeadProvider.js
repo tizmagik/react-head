@@ -1,12 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import invariant from 'tiny-invariant';
 import { Provider } from './headTagsContext';
 
 const cascadingTags = ['title', 'meta'];
 
 export default class HeadProvider extends React.Component {
   static propTypes = {
-    headTags: PropTypes.array.isRequired,
+    headTags: PropTypes.array,
     children: PropTypes.node.isRequired,
   };
 
@@ -47,7 +48,7 @@ export default class HeadProvider extends React.Component {
     },
 
     addServerTag: tagNode => {
-      const { headTags } = this.props;
+      const headTags = this.props.headTags || [];
       // tweak only cascading tags
       if (cascadingTags.indexOf(tagNode.type) !== -1) {
         const index = headTags.findIndex(
@@ -63,6 +64,10 @@ export default class HeadProvider extends React.Component {
   };
 
   render() {
+    invariant(
+      typeof window !== 'undefined' || this.props.headTags,
+      'headTags should be passed to <HeadProvider /> in node'
+    );
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

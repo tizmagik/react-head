@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     ['@babel/proposal-class-properties', { loose: true }],
     ['transform-react-remove-prop-types', { mode: 'unsafe-wrap' }],
+    'dev-expression',
   ],
   env: {
     test: {

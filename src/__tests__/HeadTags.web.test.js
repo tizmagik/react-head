@@ -46,7 +46,7 @@ describe('head tag during client', () => {
 
   it('renders only the last title', () => {
     const renderer = TestRenderer.create(
-      <HeadProvider headTags={[]}>
+      <HeadProvider>
         <div>
           <Title>Title 1</Title>
         </div>
@@ -63,7 +63,7 @@ describe('head tag during client', () => {
 
   it('mounts and unmounts title', () => {
     const renderer = TestRenderer.create(
-      <HeadProvider headTags={[]}>
+      <HeadProvider>
         <Title>Static</Title>
         <plug.Toggle initial={false}>
           {title => (
@@ -86,7 +86,7 @@ describe('head tag during client', () => {
 
   it('switches between titles', () => {
     const renderer = TestRenderer.create(
-      <HeadProvider headTags={[]}>
+      <HeadProvider>
         <Title>Static</Title>
         <plug.Value initial={null}>
           {title => (
@@ -114,7 +114,7 @@ describe('head tag during client', () => {
 
   it('renders only the last meta with the same name', () => {
     const renderer = TestRenderer.create(
-      <HeadProvider headTags={[]}>
+      <HeadProvider>
         <Meta>Static 1</Meta>
         <Meta name="name1">Static 2</Meta>
         <plug.Toggle initial={false}>
