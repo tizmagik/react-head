@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import invariant from 'tiny-invariant';
 import buildSelector from './buildSelector';
-import { Consumer } from './headTagsContext';
+import { Consumer } from './context';
 
 export default class HeadTag extends React.Component {
   static propTypes = {
@@ -40,6 +41,8 @@ export default class HeadTag extends React.Component {
     return (
       <Consumer>
         {headTags => {
+          invariant(headTags, '<HeadProvider /> should be in the tree');
+
           this.headTags = headTags;
 
           if (this.state.canUseDOM) {
