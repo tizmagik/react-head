@@ -74,21 +74,21 @@
     "react-dom": "^16.4.1",
     "react-powerplug": "^1.0.0-rc.1",
     "react-test-renderer": "^16.4.1",
-    "rollup": "^0.61.2",
+    "rollup": "^0.64.1",
     "rollup-plugin-babel": "^4.0.0-beta.8",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-size-snapshot": "^0.5.1",
+    "rollup-plugin-size-snapshot": "^0.6.1",
     "rollup-plugin-uglify": "^4.0.0"
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-rc.1",
-    "tiny-invariant": "0.0.3"
+    "tiny-invariant": "^1.0.0"
   },
   "peerDependencies": {
+    "prop-types": ">=15",
     "react": ">=16.3",
-    "react-dom": ">=16.3",
-    "prop-types": ">=15"
+    "react-dom": ">=16.3"
   },
   "jest": {
     "roots": [

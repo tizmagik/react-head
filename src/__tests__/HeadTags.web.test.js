@@ -18,17 +18,19 @@ describe('head tag during client', () => {
     color: #121212;
   }`;
 
-  TestRenderer.create(
-    <div>
-      Yes render
-      <Title>Test title</Title>
-      <Style>{globalCss}</Style>
-      <Link href="index.css" />
-      <Meta charset="utf-8" />
-    </div>
-  );
-
   it('removes head tags added during ssr', () => {
+    TestRenderer.create(
+      <HeadProvider>
+        <div>
+          Yes render
+          <Title>Test title</Title>
+          <Style>{globalCss}</Style>
+          <Link href="index.css" />
+          <Meta charset="utf-8" />
+        </div>
+      </HeadProvider>
+    );
+
     expect(qsMock).toHaveBeenCalledWith('title[data-rh=""]');
     expect(qsMock).toHaveBeenCalledWith('style[data-rh=""]');
     expect(qsMock).toHaveBeenCalledWith('link[href="index.css"][data-rh=""]');
@@ -37,6 +39,18 @@ describe('head tag during client', () => {
   });
 
   it('renders into document.head portal', () => {
+    TestRenderer.create(
+      <HeadProvider>
+        <div>
+          Yes render
+          <Title>Test title</Title>
+          <Style>{globalCss}</Style>
+          <Link href="index.css" />
+          <Meta charset="utf-8" />
+        </div>
+      </HeadProvider>
+    );
+
     expect(ReactDOMMock.createPortal).toHaveBeenCalledTimes(4);
     expect(ReactDOMMock.createPortal).toHaveBeenCalledWith(
       expect.any(Object),
@@ -148,5 +162,13 @@ describe('head tag during client', () => {
     // unmount first
     renderer.root.findAllByType('button')[0].props.onClick();
     expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('throw error if head tag is rendered without HeadProvider', () => {
+    const errorFn = jest.spyOn(console, 'error').mockImplementation(() => {});
+    expect(() => {
+      TestRenderer.create(<Style>{`body {}`}</Style>);
+    }).toThrowError(/<HeadProvider \/> should be in the tree/);
+    errorFn.mockRestore();
   });
 });

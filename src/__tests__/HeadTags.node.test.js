@@ -69,4 +69,12 @@ describe('head tag during server', () => {
       );
     }).toThrowError(/headTags should be passed/);
   });
+
+  it('throw error if head tag is rendered without HeadProvider', () => {
+    const errorFn = jest.spyOn(console, 'error').mockImplementation(() => {});
+    expect(() => {
+      renderToStaticMarkup(<Style>{`body {}`}</Style>);
+    }).toThrowError(/<HeadProvider \/> should be in the tree/);
+    errorFn.mockRestore();
+  });
 });

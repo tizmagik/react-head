@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import invariant from 'tiny-invariant';
-import { Provider } from './headTagsContext';
+import { Provider } from './context';
 
 const cascadingTags = ['title', 'meta'];
 
