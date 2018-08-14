@@ -12,16 +12,14 @@ Array [
   <style
     data-rh=""
   >
-    p {
-      color: #121212;
-    }
+    body {}
   </style>,
   <link
     data-rh=""
     href="index.css"
   />,
   <meta
-    charset="utf-8"
+    charSet="utf-8"
     data-rh=""
   />,
 ]

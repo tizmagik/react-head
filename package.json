@@ -92,7 +92,7 @@
   },
   "jest": {
     "roots": [
-      "./src"
+      "./tests"
     ],
     "setupFiles": [
       "raf/polyfill"

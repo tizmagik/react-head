@@ -31,6 +31,9 @@ export default class HeadProvider extends React.Component {
     },
 
     shouldRenderTag: (tag, index) => {
+      if (cascadingTags.indexOf(tag) === -1) {
+        return true;
+      }
       const names = this.state[tag];
       // check if the tag is the last one of similar
       return names && names.lastIndexOf(names[index]) === index;

@@ -1,61 +1,23 @@
 import * as React from 'react';
 import * as plug from 'react-powerplug';
 import TestRenderer from 'react-test-renderer';
-
-const ReactDOMMock = {
-  createPortal: jest.fn(children => <>{children}</>),
-};
-jest.setMock('react-dom', ReactDOMMock);
-const removeMock = jest.fn();
-const qsMock = jest.fn(() => ({
-  remove: removeMock,
-}));
-document.head.querySelector = qsMock;
+import './ReactDOMMock';
+import { HeadProvider, Title, Style, Meta, Link } from '../src';
 
 describe('head tag during client', () => {
-  const { HeadProvider, Title, Style, Meta, Link } = require('../');
-  const globalCss = `p {
-    color: #121212;
-  }`;
-
-  it('removes head tags added during ssr', () => {
-    TestRenderer.create(
-      <HeadProvider>
-        <div>
-          Yes render
-          <Title>Test title</Title>
-          <Style>{globalCss}</Style>
-          <Link href="index.css" />
-          <Meta charset="utf-8" />
-        </div>
-      </HeadProvider>
-    );
-
-    expect(qsMock).toHaveBeenCalledWith('title[data-rh=""]');
-    expect(qsMock).toHaveBeenCalledWith('style[data-rh=""]');
-    expect(qsMock).toHaveBeenCalledWith('link[href="index.css"][data-rh=""]');
-    expect(qsMock).toHaveBeenCalledWith('meta[charset="utf-8"][data-rh=""]');
-    expect(removeMock).toHaveBeenCalledTimes(4);
-  });
-
   it('renders into document.head portal', () => {
-    TestRenderer.create(
+    const renderer = TestRenderer.create(
       <HeadProvider>
         <div>
           Yes render
           <Title>Test title</Title>
-          <Style>{globalCss}</Style>
+          <Style>{`body {}`}</Style>
           <Link href="index.css" />
-          <Meta charset="utf-8" />
+          <Meta charSet="utf-8" />
         </div>
       </HeadProvider>
     );
-
-    expect(ReactDOMMock.createPortal).toHaveBeenCalledTimes(4);
-    expect(ReactDOMMock.createPortal).toHaveBeenCalledWith(
-      expect.any(Object),
-      document.head
-    );
+    expect(renderer.toJSON()).toMatchSnapshot();
   });
 
   it('renders only the last title', () => {

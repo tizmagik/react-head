@@ -2,9 +2,11 @@
 
 exports[`head tag during client mounts and unmounts title 1`] = `
 Array [
-  <title>
-    Static
-  </title>,
+  <portal-head>
+    <title>
+      Static
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -15,9 +17,11 @@ Array [
 
 exports[`head tag during client mounts and unmounts title 2`] = `
 Array [
-  <title>
-    Dynamic
-  </title>,
+  <portal-head>
+    <title>
+      Dynamic
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -28,9 +32,11 @@ Array [
 
 exports[`head tag during client mounts and unmounts title 3`] = `
 Array [
-  <title>
-    Static
-  </title>,
+  <portal-head>
+    <title>
+      Static
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -39,16 +45,46 @@ Array [
 ]
 `;
 
+exports[`head tag during client renders into document.head portal 1`] = `
+<div>
+  Yes render
+  <portal-head>
+    <title>
+      Test title
+    </title>
+  </portal-head>
+  <portal-head>
+    <style>
+      body {}
+    </style>
+  </portal-head>
+  <portal-head>
+    <link
+      href="index.css"
+    />
+  </portal-head>
+  <portal-head>
+    <meta
+      charSet="utf-8"
+    />
+  </portal-head>
+</div>
+`;
+
 exports[`head tag during client renders only the last meta with the same name 1`] = `
 Array [
-  <meta>
-    Static 1
-  </meta>,
-  <meta
-    name="name1"
-  >
-    Static 2
-  </meta>,
+  <portal-head>
+    <meta>
+      Static 1
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      name="name1"
+    >
+      Static 2
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -64,14 +100,18 @@ Array [
 
 exports[`head tag during client renders only the last meta with the same name 2`] = `
 Array [
-  <meta>
-    Static 1
-  </meta>,
-  <meta
-    name="name1"
-  >
-    Dynamic 1
-  </meta>,
+  <portal-head>
+    <meta>
+      Static 1
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      name="name1"
+    >
+      Dynamic 1
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -87,19 +127,23 @@ Array [
 
 exports[`head tag during client renders only the last meta with the same name 3`] = `
 Array [
-  <meta
-    name="name1"
-  >
-    Dynamic 1
-  </meta>,
+  <portal-head>
+    <meta
+      name="name1"
+    >
+      Dynamic 1
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
     toggle
   </button>,
-  <meta>
-    Dynamic 2
-  </meta>,
+  <portal-head>
+    <meta>
+      Dynamic 2
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -110,14 +154,18 @@ Array [
 
 exports[`head tag during client renders only the last meta with the same name 4`] = `
 Array [
-  <meta>
-    Static 1
-  </meta>,
-  <meta
-    name="name1"
-  >
-    Dynamic 1
-  </meta>,
+  <portal-head>
+    <meta>
+      Static 1
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      name="name1"
+    >
+      Dynamic 1
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -133,14 +181,18 @@ Array [
 
 exports[`head tag during client renders only the last meta with the same name 5`] = `
 Array [
-  <meta>
-    Static 1
-  </meta>,
-  <meta
-    name="name1"
-  >
-    Static 2
-  </meta>,
+  <portal-head>
+    <meta>
+      Static 1
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      name="name1"
+    >
+      Static 2
+    </meta>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -159,18 +211,22 @@ Array [
   <div />,
   <div />,
   <div>
-    <title>
-      Title 3
-    </title>
+    <portal-head>
+      <title>
+        Title 3
+      </title>
+    </portal-head>
   </div>,
 ]
 `;
 
 exports[`head tag during client switches between titles 1`] = `
 Array [
-  <title>
-    Static
-  </title>,
+  <portal-head>
+    <title>
+      Static
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -186,9 +242,11 @@ Array [
 
 exports[`head tag during client switches between titles 2`] = `
 Array [
-  <title>
-    Title 1
-  </title>,
+  <portal-head>
+    <title>
+      Title 1
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -209,9 +267,11 @@ Array [
   >
     0
   </button>,
-  <title>
-    Title 2
-  </title>,
+  <portal-head>
+    <title>
+      Title 2
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
@@ -222,9 +282,11 @@ Array [
 
 exports[`head tag during client switches between titles 4`] = `
 Array [
-  <title>
-    Title 1
-  </title>,
+  <portal-head>
+    <title>
+      Title 1
+    </title>
+  </portal-head>,
   <button
     onClick={[Function]}
   >
