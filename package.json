@@ -5,7 +5,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
-    "src",
+    "src/*.js",
     "dist"
   ],
   "scripts": {

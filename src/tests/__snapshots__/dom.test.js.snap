@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`removes head tags added during ssr 1`] = `
+"
+      <title data-rh=\\"\\">Test title</title>
+      <style data-rh=\\"\\">
+        body {}
+      </style>
+      <link data-rh=\\"\\" href=\\"index.css\\">
+      <not-react-head-element>
+    </not-react-head-element>"
+`;
+
+exports[`removes head tags added during ssr 2`] = `
+"
+      
+      
+      
+      <not-react-head-element>
+    </not-react-head-element><title>Test title</title><style>body {}</style><link href=\\"index.css\\"><meta charset=\\"utf-8\\">"
+`;
