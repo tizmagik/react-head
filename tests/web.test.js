@@ -126,7 +126,7 @@ describe('head tag during client', () => {
     expect(renderer.toJSON()).toMatchSnapshot();
   });
 
-  it('throw error if head tag is rendered without HeadProvider', () => {
+  it('throws error if head tag is rendered without HeadProvider', () => {
     const errorFn = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(() => {
       TestRenderer.create(<Style>{`body {}`}</Style>);
