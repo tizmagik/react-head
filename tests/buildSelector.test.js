@@ -1,4 +1,4 @@
-import buildSelector from '../buildSelector';
+import buildSelector from '../src/buildSelector';
 
 describe('buildSelector', () => {
   it('builds selector based on given object', () => {

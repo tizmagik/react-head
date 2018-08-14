@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { HeadProvider, Title, Style, Meta, Link } from '../';
+import { HeadProvider, Title, Style, Meta, Link } from '../src';
 
 describe('head tag during server', () => {
   it('renders nothing and adds tags to headTags context array', () => {
