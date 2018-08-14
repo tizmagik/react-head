@@ -65,7 +65,7 @@ exports[`head tag during client renders into document.head portal 1`] = `
   </portal-head>
   <portal-head>
     <meta
-      charset="utf-8"
+      charSet="utf-8"
     />
   </portal-head>
 </div>

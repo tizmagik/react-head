@@ -16,7 +16,7 @@ describe('head tag during server', () => {
           <Title>Title</Title>
           <Style>{`body {}`}</Style>
           <Link href="index.css" />
-          <Meta charset="utf-8" />
+          <Meta charSet="utf-8" />
         </div>
       </HeadProvider>
     );

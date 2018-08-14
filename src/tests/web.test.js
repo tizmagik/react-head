@@ -13,7 +13,7 @@ describe('head tag during client', () => {
           <Title>Test title</Title>
           <Style>{`body {}`}</Style>
           <Link href="index.css" />
-          <Meta charset="utf-8" />
+          <Meta charSet="utf-8" />
         </div>
       </HeadProvider>
     );
