@@ -12,9 +12,9 @@ export default class HeadTag extends React.Component {
   index = -1;
 
   componentDidMount() {
-    const { tag, name } = this.props;
+    const { tag, name, property } = this.props;
     this.setState({ canUseDOM: true });
-    this.index = this.headTags.addClientTag(tag, name);
+    this.index = this.headTags.addClientTag(tag, name || property);
   }
 
   componentWillUnmount() {
