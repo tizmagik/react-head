@@ -66,6 +66,11 @@ export default class HeadProvider extends React.Component {
     },
   };
 
+  componentDidMount() {
+    const ssrTags = document.head.querySelectorAll(`[data-rh=""]`);
+    ssrTags.forEach(ssrTag => ssrTag.remove());
+  }
+
   render() {
     invariant(
       typeof window !== 'undefined' || this.props.headTags,

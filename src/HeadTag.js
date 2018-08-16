@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import invariant from 'tiny-invariant';
-import buildSelector from './buildSelector';
 import { Consumer } from './context';
 
 export default class HeadTag extends React.Component {
@@ -18,17 +17,9 @@ export default class HeadTag extends React.Component {
   index = -1;
 
   componentDidMount() {
+    const { tag, name } = this.props;
     this.setState({ canUseDOM: true });
-
-    const { tag, children, ...rest } = this.props;
-    const ssrTags = document.head.querySelector(
-      `${tag}${buildSelector(rest)}[data-rh=""]`
-    );
-
-    if (ssrTags) {
-      ssrTags.remove();
-    }
-    this.index = this.headTags.addClientTag(tag, rest.name);
+    this.index = this.headTags.addClientTag(tag, name);
   }
 
   componentWillUnmount() {
