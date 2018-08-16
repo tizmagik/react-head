@@ -1,14 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import invariant from 'tiny-invariant';
 import { Consumer } from './context';
 
 export default class HeadTag extends React.Component {
-  static propTypes = {
-    tag: PropTypes.string.isRequired,
-  };
-
   state = {
     canUseDOM: false,
   };

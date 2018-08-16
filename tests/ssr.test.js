@@ -64,7 +64,17 @@ describe('head tag during server', () => {
           <Style>{`body {}`}</Style>
         </HeadProvider>
       );
-    }).toThrowError(/headTags should be passed/);
+    }).toThrowError(/headTags array should be passed/);
+  });
+
+  it('fails if headTags is not an array', () => {
+    expect(() => {
+      renderToStaticMarkup(
+        <HeadProvider headTags={{}}>
+          <Style>{`body {}`}</Style>
+        </HeadProvider>
+      );
+    }).toThrowError(/headTags array should be passed/);
   });
 
   it('throw error if head tag is rendered without HeadProvider', () => {
