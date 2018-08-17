@@ -1,4 +1,4 @@
-# react-head  [![npm Version](https://img.shields.io/npm/v/react-head.svg?style=flat-square)](https://www.npmjs.org/package/react-head) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md#pull-requests)
+# react-head [![npm Version](https://img.shields.io/npm/v/react-head.svg?style=flat-square)](https://www.npmjs.org/package/react-head) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md#pull-requests)
 
 Asynchronous SSR-ready Document Head management for React 16.3+
 
@@ -24,9 +24,10 @@ yarn add react-head
 
 ## How it works
 
-1. On the server, you wrap your App in `<HeadProvider />` with a given `headTags[]` array
-1. Then call `renderToString(headTags)` and include in the `<head />` block of your server template
-1. To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />` and `<Link />` components as often as needed.
+1.  You wrap your App with `<HeadProvider />`
+1.  From the server, you pass `headTags[]` array to `<HeadProvider />`
+1.  Then call `renderToString(headTags)` and include in the `<head />` block of your server template
+1.  To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />` and `<Link />` components as often as needed.
 
 On the server, the tags are collected in the `headTags[]` array, and then on the client the server-generated tags are removed in favor of the client-rendered tags so that SPAs still work as expected (e.g. in cases where subsequent pageloads need to change the head tags).
 
@@ -61,7 +62,7 @@ res.send(`
       <div id="root">${app}</div>
     </body>
   </html>
-`)
+`);
 ```
 
 ### Client setup
@@ -70,20 +71,20 @@ There is nothing special required on the client, just render one of head tag com
 
 ```js
 import * as React from 'react';
-import { Title, Link, Meta } from 'react-head';
+import { HeadProvider, Title, Link, Meta } from 'react-head';
 
 const App = () => (
-   <div className="Home">
+  <HeadProvider>
+    <div className="Home">
       <Title>Title of page</Title>
       <Link rel="canonical" content="http://jeremygayed.com/" />
       <Meta name="example" content="whatever" />
       // ...
-  </div>
-)
+    </div>
+  </HeadProvider>
+);
 ```
 
 ## Contributing
 
 Please follow the [contributing docs](/CONTRIBUTING.md)
-
-
