@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`head tag during server renders nothing and adds tags to headTags context array 1`] = `"<div>Yes render</div>"`;
+exports[`renders nothing and adds tags to headTags context array 1`] = `"<div>Yes render</div>"`;
 
-exports[`head tag during server renders nothing and adds tags to headTags context array 2`] = `
+exports[`renders nothing and adds tags to headTags context array 2`] = `
 Array [
   <title
     data-rh=""
@@ -25,7 +25,30 @@ Array [
 ]
 `;
 
-exports[`head tag during server renders only the last meta with the same name 1`] = `
+exports[`renders only last meta with the same property 1`] = `
+Array [
+  <meta
+    data-rh=""
+    property="name1"
+  >
+    Meta 2
+  </meta>,
+  <meta
+    data-rh=""
+    name="name2"
+  >
+    Meta 4
+  </meta>,
+  <meta
+    data-rh=""
+    property="name3"
+  >
+    Meta 6
+  </meta>,
+]
+`;
+
+exports[`renders only the last meta with the same name 1`] = `
 Array [
   <meta
     data-rh=""
@@ -53,7 +76,7 @@ Array [
 ]
 `;
 
-exports[`head tag during server renders only the last title 1`] = `
+exports[`renders only the last title 1`] = `
 Array [
   <title
     data-rh=""

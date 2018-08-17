@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`head tag during client mounts and unmounts title 1`] = `
+exports[`mounts and unmounts title 1`] = `
 Array [
   <portal-head>
     <title>
@@ -15,7 +15,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client mounts and unmounts title 2`] = `
+exports[`mounts and unmounts title 2`] = `
 Array [
   <portal-head>
     <title>
@@ -30,7 +30,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client mounts and unmounts title 3`] = `
+exports[`mounts and unmounts title 3`] = `
 Array [
   <portal-head>
     <title>
@@ -45,7 +45,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders into document.head portal 1`] = `
+exports[`renders into document.head portal 1`] = `
 <div>
   Yes render
   <portal-head>
@@ -71,7 +71,33 @@ exports[`head tag during client renders into document.head portal 1`] = `
 </div>
 `;
 
-exports[`head tag during client renders only the last meta with the same name 1`] = `
+exports[`renders only last meta with the same property 1`] = `
+Array [
+  <portal-head>
+    <meta
+      property="name1"
+    >
+      Meta 2
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      name="name2"
+    >
+      Meta 4
+    </meta>
+  </portal-head>,
+  <portal-head>
+    <meta
+      property="name3"
+    >
+      Meta 6
+    </meta>
+  </portal-head>,
+]
+`;
+
+exports[`renders only the last meta with the same name 1`] = `
 Array [
   <portal-head>
     <meta>
@@ -98,7 +124,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders only the last meta with the same name 2`] = `
+exports[`renders only the last meta with the same name 2`] = `
 Array [
   <portal-head>
     <meta>
@@ -125,7 +151,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders only the last meta with the same name 3`] = `
+exports[`renders only the last meta with the same name 3`] = `
 Array [
   <portal-head>
     <meta
@@ -152,7 +178,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders only the last meta with the same name 4`] = `
+exports[`renders only the last meta with the same name 4`] = `
 Array [
   <portal-head>
     <meta>
@@ -179,7 +205,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders only the last meta with the same name 5`] = `
+exports[`renders only the last meta with the same name 5`] = `
 Array [
   <portal-head>
     <meta>
@@ -206,7 +232,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client renders only the last title 1`] = `
+exports[`renders only the last title 1`] = `
 Array [
   <div />,
   <div />,
@@ -220,7 +246,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client switches between titles 1`] = `
+exports[`switches between titles 1`] = `
 Array [
   <portal-head>
     <title>
@@ -240,7 +266,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client switches between titles 2`] = `
+exports[`switches between titles 2`] = `
 Array [
   <portal-head>
     <title>
@@ -260,7 +286,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client switches between titles 3`] = `
+exports[`switches between titles 3`] = `
 Array [
   <button
     onClick={[Function]}
@@ -280,7 +306,7 @@ Array [
 ]
 `;
 
-exports[`head tag during client switches between titles 4`] = `
+exports[`switches between titles 4`] = `
 Array [
   <portal-head>
     <title>

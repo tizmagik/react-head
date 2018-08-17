@@ -25,12 +25,12 @@ export default class HeadProvider extends React.Component {
     },
 
     shouldRenderTag: (tag, index) => {
-      if (cascadingTags.indexOf(tag) === -1) {
-        return true;
+      if (cascadingTags.indexOf(tag) !== -1) {
+        const names = this.state[tag];
+        // check if the tag is the last one of similar
+        return names && names.lastIndexOf(names[index]) === index;
       }
-      const names = this.state[tag];
-      // check if the tag is the last one of similar
-      return names && names.lastIndexOf(names[index]) === index;
+      return true;
     },
 
     removeClientTag: (tag, index) => {
@@ -48,10 +48,11 @@ export default class HeadProvider extends React.Component {
       const headTags = this.props.headTags || [];
       // tweak only cascading tags
       if (cascadingTags.indexOf(tagNode.type) !== -1) {
-        const index = headTags.findIndex(
-          prev =>
-            prev.type === tagNode.type && prev.props.name === tagNode.props.name
-        );
+        const index = headTags.findIndex(prev => {
+          const prevName = prev.props.name || prev.props.property;
+          const nextName = tagNode.props.name || tagNode.props.property;
+          return prev.type === tagNode.type && prevName === nextName;
+        });
         if (index !== -1) {
           headTags.splice(index, 1);
         }
