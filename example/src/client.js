@@ -1,11 +1,14 @@
-import App from './App';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import React from 'react';
 import { hydrate } from 'react-dom';
+import { HeadProvider } from 'react-head';
+import App from './App';
 
 hydrate(
   <BrowserRouter>
-    <App />
+    <HeadProvider>
+      <App />
+    </HeadProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

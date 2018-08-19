@@ -2,10 +2,10 @@ import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
-import { HeadCollector } from 'react-head';
+import { HeadProvider } from 'react-head';
 import App from './App';
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets = require(process.env.RAZZLE_ASSETS_MANIFEST); // eslint-disable-line
 
 const server = express();
 server
@@ -16,9 +16,9 @@ server
     const headTags = [];
     const markup = renderToString(
       <StaticRouter context={context} location={req.url}>
-        <HeadCollector headTags={headTags}>
+        <HeadProvider headTags={headTags}>
           <App />
-        </HeadCollector>
+        </HeadProvider>
       </StaticRouter>
     );
 
@@ -32,10 +32,16 @@ server
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet='utf-8' />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${assets.client.css ? `<link rel="stylesheet" href="${assets.client.css}">` : ''}
-        ${process.env.NODE_ENV === 'production'
-          ? `<script src="${assets.client.js}" defer></script>`
-          : `<script src="${assets.client.js}" defer crossorigin></script>`}
+        ${
+          assets.client.css
+            ? `<link rel="stylesheet" href="${assets.client.css}">`
+            : ''
+        }
+        ${
+          process.env.NODE_ENV === 'production'
+            ? `<script src="${assets.client.js}" defer></script>`
+            : `<script src="${assets.client.js}" defer crossorigin></script>`
+        }
           ${renderToString(headTags)}
     </head>
     <body>
