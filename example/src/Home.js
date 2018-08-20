@@ -5,6 +5,10 @@ import { Link as RouterLink } from '@reach/router';
 import logo from './react.svg';
 import './Home.css';
 
+const NestedComponent = () => (
+  <Meta name="example" content="cascading example" />
+);
+
 const Home = () => (
   <div className="Home">
     <Title>Home | Example react-head App</Title>
@@ -20,6 +24,7 @@ const Home = () => (
     <p className="Home-intro">
       View the example code in <code>src/Home.js</code>. Note that this works
       isomorphically.
+      <NestedComponent />
     </p>
     <p>
       Click the example contact page below to see how the Header tags will

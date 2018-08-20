@@ -5,6 +5,10 @@ import { Link as RouterLink } from '@reach/router';
 import logo from './react.svg';
 import './Contact.css';
 
+const NestedComponent = () => (
+  <Title>Contact | Example react-head App (with cascading title)</Title>
+);
+
 const Contact = () => (
   <div className="Contact">
     <Title>Contact | Example react-head App</Title>
@@ -14,6 +18,7 @@ const Contact = () => (
       <img src={logo} className="Contact-logo" alt="logo" />
       <h2>react-head contact us page</h2>
     </div>
+    <NestedComponent />
     <p className="Contact-intro">
       View the example code in <code>src/Contact.js</code>. Note that this works
       isomorphically.
