@@ -6,7 +6,7 @@ Asynchronous SSR-ready Document Head management for React 16.3+
 
 ## Motivation
 
-This module allows you to define `document.head` tags anywhere in your component hiearchy. The motivations are similar to [react-helmet](https://github.com/nfl/react-helmet) in that you may only have the information for certain tags contextually deep in your component hiearchy. There are no dependencies (it does not use react-side-effects) and it should work fine with asynchronous rendering; the only requirement is React 16.3+.
+This module allows you to define `document.head` tags anywhere in your component hierarchy. The motivations are similar to [react-helmet](https://github.com/nfl/react-helmet) in that you may only have the information for certain tags contextually deep in your component hiearchy. There are no dependencies (it does not use react-side-effects) and it should work fine with asynchronous rendering; the only requirement is React 16.3+.
 
 [Read more about react-head and how it works on Medium](https://jeremygayed.com/making-head-tag-management-thread-safe-with-react-head-323654170b45)
 
@@ -26,10 +26,10 @@ yarn add react-head
 
 1.  You wrap your App with `<HeadProvider />`
 1.  From the server, you pass `headTags[]` array to `<HeadProvider />`
-1.  Then call `renderToString(headTags)` and include in the `<head />` block of your server template
+1.  Then call `renderToStaticMarkup(headTags)` and include in the `<head />` block of your server template
 1.  To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />` and `<Link />` components as often as needed.
 
-On the server, the tags are collected in the `headTags[]` array, and then on the client the server-generated tags are removed in favor of the client-rendered tags so that SPAs still work as expected (e.g. in cases where subsequent pageloads need to change the head tags).
+On the server, the tags are collected in the `headTags[]` array, and then on the client the server-generated tags are removed in favor of the client-rendered tags so that SPAs still work as expected (e.g. in cases where subsequent page loads need to change the head tags).
 
 > You can view a fully working sample app in the [/example](/example) folder.
 
@@ -45,7 +45,6 @@ import App from './App';
 
 // ... within the context of a request ...
 
-const context = {};
 const headTags = [];
 const app = renderToString(
   <HeadProvider headTags={headTags}>

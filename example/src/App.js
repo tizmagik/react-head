@@ -1,15 +1,14 @@
 import React from 'react';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
+import { Router } from '@reach/router';
 import Home from './Home';
 import Contact from './Contact';
 import './App.css';
 
 const App = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/contact" component={Contact} />
-  </Switch>
+  <Router>
+    <Home path="/" />
+    <Contact path="/contact" />
+  </Router>
 );
 
 export default App;
