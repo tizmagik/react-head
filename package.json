@@ -15,7 +15,7 @@
     "build": "rollup -c && npm run build:flow",
     "example": "cd example && npm i && npm start",
     "dev": "run-p build:watch example",
-    "test": "jest",
+    "test": "jest --no-cache",
     "posttest": "npm run lint",
     "test:watch": "jest --watch",
     "typecheck:flow": "flow check --max-warnings=0",

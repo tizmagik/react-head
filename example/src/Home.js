@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link, Meta, Title, Style } from 'react-head';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@reach/router';
 import logo from './react.svg';
 import './Home.css';
 

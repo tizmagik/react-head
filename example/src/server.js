@@ -1,7 +1,7 @@
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { ServerLocation, isRedirect } from '@reach/router';
 import express from 'express';
-import { renderToString } from 'react-dom/server';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { HeadProvider } from 'react-head';
 import App from './App';
 
@@ -12,21 +12,27 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/*', (req, res) => {
-    const context = {};
     const headTags = [];
-    const markup = renderToString(
-      <StaticRouter context={context} location={req.url}>
-        <HeadProvider headTags={headTags}>
-          <App />
-        </HeadProvider>
-      </StaticRouter>
-    );
+    let markup;
 
-    if (context.url) {
-      res.redirect(context.url);
-    } else {
-      res.status(200).send(
-        `<!doctype html>
+    try {
+      markup = renderToString(
+        <ServerLocation url={req.url}>
+          <HeadProvider headTags={headTags}>
+            <App />
+          </HeadProvider>
+        </ServerLocation>
+      );
+    } catch (error) {
+      if (isRedirect(error)) {
+        res.redirect(error.uri);
+      } else {
+        res.status(500).end(`An error occurred, ${error}`);
+      }
+    }
+
+    res.status(200).send(
+      `<!doctype html>
     <html lang="">
     <head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -42,14 +48,13 @@ server
             ? `<script src="${assets.client.js}" defer></script>`
             : `<script src="${assets.client.js}" defer crossorigin></script>`
         }
-          ${renderToString(headTags)}
+          ${renderToStaticMarkup(headTags)}
     </head>
     <body>
         <div id="root">${markup}</div>
     </body>
 </html>`
-      );
-    }
+    );
   });
 
 export default server;
