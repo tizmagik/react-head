@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`does not alter head tags if serverOnly 1`] = `
+"
+      <title>Test title</title>
+      <style>
+        body {}
+      </style>
+      <link href=\\"index.css\\">
+      <not-react-head-element>
+    </not-react-head-element>"
+`;
+
+exports[`does not alter head tags if serverOnly 2`] = `
+"
+      <title>Test title</title>
+      <style>
+        body {}
+      </style>
+      <link href=\\"index.css\\">
+      <not-react-head-element>
+    </not-react-head-element>"
+`;
+
 exports[`removes head tags added during ssr 1`] = `
 "
       <title data-rh=\\"\\">Test title</title>

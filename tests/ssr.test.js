@@ -23,6 +23,23 @@ test('renders nothing and adds tags to headTags context array', () => {
   expect(arr).toMatchSnapshot();
 });
 
+test('skip data-rh attributes if serverOnly', () => {
+  const arr = [];
+  const markup = renderToStaticMarkup(
+    <HeadProvider headTags={arr} serverOnly>
+      <div>
+        Yes render
+        <Title>Title</Title>
+        <Style>{`body {}`}</Style>
+        <Link href="index.css" />
+        <Meta charSet="utf-8" />
+      </div>
+    </HeadProvider>
+  );
+  expect(markup).toMatchSnapshot();
+  expect(arr).toMatchSnapshot();
+});
+
 test('renders only the last title', () => {
   const arr = [];
   renderToStaticMarkup(

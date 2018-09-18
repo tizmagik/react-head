@@ -85,3 +85,28 @@ Array [
   </title>,
 ]
 `;
+
+exports[`skips data-rh attributes if serverOnly 1`] = `"<div>Yes render</div>"`;
+
+exports[`skips data-rh attributes if serverOnly 2`] = `
+Array [
+  <title
+    data-rh={null}
+  >
+    Title
+  </title>,
+  <style
+    data-rh={null}
+  >
+    body {}
+  </style>,
+  <link
+    data-rh={null}
+    href="index.css"
+  />,
+  <meta
+    charSet="utf-8"
+    data-rh={null}
+  />,
+]
+`;

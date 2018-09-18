@@ -32,3 +32,34 @@ test('removes head tags added during ssr', () => {
 
   expect(document.head.innerHTML).toMatchSnapshot();
 });
+
+test('does not alter head tags if serverOnly', () => {
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+
+  document.head.innerHTML = `
+      <title>Test title</title>
+      <style>
+        body {}
+      </style>
+      <link href="index.css" />
+      <not-react-head-element />
+    `;
+
+  expect(document.head.innerHTML).toMatchSnapshot();
+
+  ReactDOM.render(
+    <HeadProvider serverOnly>
+      <div>
+        Yes render
+        <Title>Test title</Title>
+        <Style>{`body {}`}</Style>
+        <Link href="index.css" />
+        <Meta charSet="utf-8" />
+      </div>
+    </HeadProvider>,
+    root
+  );
+
+  expect(document.head.innerHTML).toMatchSnapshot();
+});

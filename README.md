@@ -82,6 +82,16 @@ const App = () => (
 );
 ```
 
+### Options
+
+```js
+<HeadProvider
+  serverOnly // Only render tags on the server, do not replace on client render
+  />
+```
+
+Note that the `serverOnly` option will also remove the `data-rh=""` properties from the rendered tags, as the client does not use them.
+
 ## Contributing
 
 Please follow the [contributing docs](/CONTRIBUTING.md)
