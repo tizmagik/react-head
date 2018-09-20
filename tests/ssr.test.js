@@ -23,6 +23,24 @@ test('renders nothing and adds tags to headTags context array', () => {
   expect(arr).toMatchSnapshot();
 });
 
+test('renders a title matching the template', () => {
+  const arr = [];
+  renderToStaticMarkup(
+    <HeadProvider headTags={arr} titleTemplate="%s - test">
+      <div>
+        <Title>Title 1</Title>
+      </div>
+      <div>
+        <Title>Title 2</Title>
+      </div>
+      <div>
+        <Title>Title 3</Title>
+      </div>
+    </HeadProvider>
+  );
+  expect(arr).toMatchSnapshot();
+});
+
 test('renders only the last title', () => {
   const arr = [];
   renderToStaticMarkup(

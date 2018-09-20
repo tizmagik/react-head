@@ -1,7 +1,12 @@
 import * as React from 'react';
 import HeadTag from './HeadTag';
 
-export const Title = props => <HeadTag tag="title" {...props} />;
+const renderTitle = (headTags, children) =>
+  headTags.titleTemplate.replace('%s', `${children}`);
+
+export const Title = props => (
+  <HeadTag outputTemplate={renderTitle} tag="title" {...props} />
+);
 
 export const Style = props => <HeadTag tag="style" {...props} />;
 

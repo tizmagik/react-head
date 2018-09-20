@@ -82,6 +82,14 @@ const App = () => (
 );
 ```
 
+### Options
+
+```js
+<HeadProvider
+  titleTemplate="%s - Sitename" // Title will be output per template, replacing %s with title text
+  />
+```
+
 ## Contributing
 
 Please follow the [contributing docs](/CONTRIBUTING.md)

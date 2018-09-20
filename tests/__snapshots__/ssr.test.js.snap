@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders a title matching the template 1`] = `
+Array [
+  <title
+    data-rh=""
+  >
+    Title 3 - test
+  </title>,
+]
+`;
+
 exports[`renders nothing and adds tags to headTags context array 1`] = `"<div>Yes render</div>"`;
 
 exports[`renders nothing and adds tags to headTags context array 2`] = `

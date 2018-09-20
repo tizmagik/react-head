@@ -4,6 +4,9 @@ import invariant from 'tiny-invariant';
 import { Consumer } from './context';
 
 export default class HeadTag extends React.Component {
+  static defaultProps = {
+    outputTemplate: (h, s) => s,
+  };
   state = {
     canUseDOM: false,
   };
@@ -22,7 +25,7 @@ export default class HeadTag extends React.Component {
   }
 
   render() {
-    const { tag: Tag, ...rest } = this.props;
+    const { tag: Tag, children, outputTemplate, ...rest } = this.props;
 
     return (
       <Consumer>
@@ -35,11 +38,18 @@ export default class HeadTag extends React.Component {
             if (!headTags.shouldRenderTag(Tag, this.index)) {
               return null;
             }
-            const ClientComp = <Tag {...rest} />;
+
+            const ClientComp = (
+              <Tag {...rest}>{outputTemplate(headTags, children)}</Tag>
+            );
             return ReactDOM.createPortal(ClientComp, document.head);
           }
 
-          const ServerComp = <Tag data-rh="" {...rest} />;
+          const ServerComp = (
+            <Tag data-rh="" {...rest}>
+              {outputTemplate(headTags, children)}
+            </Tag>
+          );
           headTags.addServerTag(ServerComp);
           return null;
         }}
