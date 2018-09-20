@@ -13,7 +13,7 @@
     "build:flow": "echo \"// @flow\n\nexport * from '../src'\" > dist/index.cjs.js.flow",
     "build:watch": "rollup -c --watch",
     "build": "rollup -c && npm run build:flow",
-    "example": "cd example && npm i && npm start",
+    "example": "cd example && npm ci && npm start",
     "dev": "run-p build:watch example",
     "test": "jest --no-cache",
     "posttest": "npm run lint",
