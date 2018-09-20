@@ -18,7 +18,10 @@ server
     try {
       markup = renderToString(
         <ServerLocation url={req.url}>
-          <HeadProvider headTags={headTags}>
+          <HeadProvider
+            headTags={headTags}
+            titleTemplate="%s | Example react-head App"
+          >
             <App />
           </HeadProvider>
         </ServerLocation>

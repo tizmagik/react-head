@@ -4,7 +4,7 @@ import { HeadProvider } from 'react-head';
 import App from './App';
 
 hydrate(
-  <HeadProvider>
+  <HeadProvider titleTemplate="%s | Example react-head App">
     <App />
   </HeadProvider>,
   document.getElementById('root')

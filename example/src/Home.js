@@ -11,7 +11,7 @@ const NestedComponent = () => (
 
 const Home = () => (
   <div className="Home">
-    <Title>Home | Example react-head App</Title>
+    <Title>Home</Title>
     <Style>{`p {
       color: #121212;
     }`}</Style>
