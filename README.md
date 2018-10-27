@@ -1,4 +1,4 @@
-# react-head [![npm Version](https://img.shields.io/npm/v/react-head.svg?style=flat-square)](https://www.npmjs.org/package/react-head) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md#pull-requests)
+# react-head [![npm Version](https://img.shields.io/npm/v/react-head.svg?style=flat-square)](https://www.npmjs.org/package/react-head) [![bundlephobia](https://badgen.net/bundlephobia/minzip/react-head)](https://bundlephobia.com/result?p=react-head) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md#pull-requests)
 
 Asynchronous SSR-ready Document Head management for React 16.3+
 
