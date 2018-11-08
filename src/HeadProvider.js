@@ -4,6 +4,14 @@ import { Provider } from './context';
 
 const cascadingTags = ['title', 'meta'];
 
+const safeRemove = tag => {
+  if (tag.remove) {
+    tag.remove();
+  } else if (tag.parentNode !== null) {
+    tag.parentNode.removeChild(tag);
+  }
+};
+
 export default class HeadProvider extends React.Component {
   indices = new Map();
 
@@ -64,7 +72,7 @@ export default class HeadProvider extends React.Component {
   componentDidMount() {
     const ssrTags = document.head.querySelectorAll(`[data-rh=""]`);
     // `forEach` on `NodeList` is not supported in Googlebot, so use a workaround
-    Array.prototype.forEach.call(ssrTags, ssrTag => ssrTag.remove());
+    Array.prototype.forEach.call(ssrTags, ssrTag => safeRemove(ssrTag));
   }
 
   render() {
