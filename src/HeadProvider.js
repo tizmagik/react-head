@@ -64,7 +64,9 @@ export default class HeadProvider extends React.Component {
   componentDidMount() {
     const ssrTags = document.head.querySelectorAll(`[data-rh=""]`);
     // `forEach` on `NodeList` is not supported in Googlebot, so use a workaround
-    Array.prototype.forEach.call(ssrTags, ssrTag => ssrTag.remove());
+    Array.prototype.forEach.call(ssrTags, ssrTag =>
+      ssrTag.parentNode.removeChild(ssrTag)
+    );
   }
 
   render() {
