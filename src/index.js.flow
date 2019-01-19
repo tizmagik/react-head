@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 declare export var HeadProvider: React.ComponentType<{
-  headTags: Array<React.Element<any>>,
+  headTags?: Array<React.Element<any>>,
   children: React.Node,
 }>;
 
