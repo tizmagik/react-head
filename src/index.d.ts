@@ -15,14 +15,20 @@ export const Title: React.ComponentType<React.HTMLAttributes<HTMLTitleElement>>;
 /**
  * <style> tag component
  */
-export const Style: React.ComponentType<React.HTMLAttributes<HTMLStyleElement>>;
+export const Style: React.ComponentType<
+  React.StyleHTMLAttributes<HTMLStyleElement>
+>;
 
 /**
  * <meta> tag component
  */
-export const Meta: React.ComponentType<React.HTMLAttributes<HTMLMetaElement>>;
+export const Meta: React.ComponentType<
+  React.MetaHTMLAttributes<HTMLMetaElement>
+>;
 
 /**
  * <link> tag component
  */
-export const Link: React.ComponentType<React.HTMLAttributes<HTMLLinkElement>>;
+export const Link: React.ComponentType<
+  React.LinkHTMLAttributes<HTMLLinkElement>
+>;
