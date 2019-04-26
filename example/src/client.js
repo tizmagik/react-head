@@ -4,7 +4,7 @@ import { HeadProvider } from 'react-head';
 import App from './App';
 
 hydrate(
-  <HeadProvider>
+  <HeadProvider whitelist="title">
     <App />
   </HeadProvider>,
   document.getElementById('root')
