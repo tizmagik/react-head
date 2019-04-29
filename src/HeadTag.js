@@ -40,10 +40,8 @@ export default class HeadTag extends React.Component {
           }
 
           // disable `data-rh` if <HeadProvider whitelist /> matches Tag
-          const dataAttribute = `${headTags.whitelist}`.split(`,`).includes(Tag)
-            ? {}
-            : { 'data-rh': `` };
-          const ServerComp = <Tag {...dataAttribute} {...rest} />;
+          const dataAttribute = headTags.whitelist.includes(Tag) ? null : ``;
+          const ServerComp = <Tag data-rh={dataAttribute} {...rest} />;
           headTags.addServerTag(ServerComp);
           return null;
         }}

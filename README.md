@@ -84,18 +84,18 @@ const App = () => (
 
 ## Disable data-rh attribute
 
-`<HeadProvider/>` accepts an optional prop `whitelist` which accepts a comma separated CSS selector string just like `document.querySelector`. This allows `react-head` to know which tags it controlls without the need for the `data-rh` attribute, which might lead to problems with some HTML parsers of SEO tools for example.
+`<HeadProvider/>` accepts an optional prop `whitelist` which takes an array of CSS selector strings used in `document.querySelector`. This allows `react-head` to know which tags it controlls without the need for the `data-rh` attribute, which might lead to problems with some HTML parsers of SEO tools for example.
 
 ### Example
 
 ```jsx
 // on the server
-<HeadProvider headTags={headTags} whitelist="title,[name="description"],[property^="og:"]">
+<HeadProvider headTags={headTags} whitelist={['title', '[name="description"]', '[property^="og:"]'}>
   <App />
 </HeadProvider>
 
 // in the client
-<HeadProvider whitelist="title,[name="description"],[property^="og:"]">
+<HeadProvider whitelist={['title', '[name="description"]', '[property^="og:"]'}>
   <div id="app">
     <Title>Title of page</Title>
     // ...

@@ -60,12 +60,12 @@ export default class HeadProvider extends React.Component {
       headTags.push(tagNode);
     },
 
-    whitelist: this.props.whitelist || ``,
+    whitelist: this.props.whitelist || [],
   };
 
   componentDidMount() {
-    const whitelist = `${this.state.whitelist}`
-      ? `,${this.state.whitelist}`
+    const whitelist = this.state.whitelist.length
+      ? `,${this.state.whitelist.join(`,`)}`
       : ``;
     const ssrTags = document.head.querySelectorAll(`[data-rh=""]${whitelist}`);
     // `forEach` on `NodeList` is not supported in Googlebot, so use a workaround
