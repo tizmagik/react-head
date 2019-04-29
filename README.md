@@ -43,7 +43,7 @@ import App from './App';
 
 // ... within the context of a request ...
 
-const headTags = []; // this array gets populated as a prop
+const headTags = []; // mutated during render so you can include in server-rendered template later
 const app = renderToString(
   <HeadProvider headTags={headTags}>
     <App />
