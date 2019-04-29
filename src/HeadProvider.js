@@ -45,7 +45,7 @@ export default class HeadProvider extends React.Component {
     },
 
     addServerTag: tagNode => {
-      const headTags = this.props.headTags || [];
+      const headTags = (this.props.headTags || []).slice(0); // clone array
       // tweak only cascading tags
       if (cascadingTags.indexOf(tagNode.type) !== -1) {
         const index = headTags.findIndex(prev => {

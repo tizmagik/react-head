@@ -32,3 +32,18 @@ test('removes head tags added during ssr', () => {
 
   expect(document.head.innerHTML).toMatchSnapshot();
 });
+
+test('leaves headTags prop unmodified after render', () => {
+  const root = document.createElement('div');
+  document.body.appendChild(root);
+
+  const tags = [];
+  ReactDOM.render(
+    <HeadProvider headTags={tags}>
+      <Title>Test title</Title>
+    </HeadProvider>,
+    root
+  );
+
+  expect(tags).toEqual([]);
+});
