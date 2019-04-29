@@ -45,6 +45,51 @@ Array [
 ]
 `;
 
+exports[`mounts and unmounts title with \`data-rh\` disabled 1`] = `
+Array [
+  <portal-head>
+    <title>
+      Static
+    </title>
+  </portal-head>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
+exports[`mounts and unmounts title with \`data-rh\` disabled 2`] = `
+Array [
+  <portal-head>
+    <title>
+      Dynamic
+    </title>
+  </portal-head>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
+exports[`mounts and unmounts title with \`data-rh\` disabled 3`] = `
+Array [
+  <portal-head>
+    <title>
+      Static
+    </title>
+  </portal-head>,
+  <button
+    onClick={[Function]}
+  >
+    toggle
+  </button>,
+]
+`;
+
 exports[`renders into document.head portal 1`] = `
 <div>
   Yes render

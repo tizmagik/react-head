@@ -98,3 +98,20 @@ test('throw error if head tag is rendered without HeadProvider', () => {
   }).toThrowError(/<HeadProvider \/> should be in the tree/);
   errorFn.mockRestore();
 });
+
+test('renders nothing and adds tags to headTags context array setting `data-rh` to `null` on title', () => {
+  const arr = [];
+  const markup = renderToStaticMarkup(
+    <HeadProvider headTags={arr} whitelist={['title']}>
+      <div>
+        Yes render
+        <Title>Title</Title>
+        <Style>{`body {}`}</Style>
+        <Link href="index.css" />
+        <Meta charSet="utf-8" />
+      </div>
+    </HeadProvider>
+  );
+  expect(markup).toMatchSnapshot();
+  expect(arr).toMatchSnapshot();
+});

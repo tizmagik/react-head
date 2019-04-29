@@ -59,6 +59,29 @@ test('mounts and unmounts title', () => {
   expect(renderer.toJSON()).toMatchSnapshot();
 });
 
+test('mounts and unmounts title with `data-rh` disabled', () => {
+  const renderer = TestRenderer.create(
+    <HeadProvider whitelist={['title']}>
+      <Title>Static</Title>
+      <plug.Toggle initial={false}>
+        {title => (
+          <>
+            {title.on && <Title>Dynamic</Title>}
+            <button onClick={title.toggle}>toggle</button>
+          </>
+        )}
+      </plug.Toggle>
+    </HeadProvider>
+  );
+  expect(renderer.toJSON()).toMatchSnapshot();
+  // mount
+  renderer.root.findByType('button').props.onClick();
+  expect(renderer.toJSON()).toMatchSnapshot();
+  // unmount
+  renderer.root.findByType('button').props.onClick();
+  expect(renderer.toJSON()).toMatchSnapshot();
+});
+
 test('switches between titles', () => {
   const renderer = TestRenderer.create(
     <HeadProvider>

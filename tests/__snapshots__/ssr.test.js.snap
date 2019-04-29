@@ -25,6 +25,31 @@ Array [
 ]
 `;
 
+exports[`renders nothing and adds tags to headTags context array setting \`data-rh\` to \`null\` on title 1`] = `"<div>Yes render</div>"`;
+
+exports[`renders nothing and adds tags to headTags context array setting \`data-rh\` to \`null\` on title 2`] = `
+Array [
+  <title
+    data-rh={null}
+  >
+    Title
+  </title>,
+  <style
+    data-rh=""
+  >
+    body {}
+  </style>,
+  <link
+    data-rh=""
+    href="index.css"
+  />,
+  <meta
+    charSet="utf-8"
+    data-rh=""
+  />,
+]
+`;
+
 exports[`renders only last meta with the same property 1`] = `
 Array [
   <meta
