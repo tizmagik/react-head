@@ -33,7 +33,7 @@ On the server, the tags are collected in the `headTags[]` array, and then on the
 
 ### Server setup
 
-Wrap your app with `<HeadProvider />` on the server with a given `headTags[]` array to pass down as part of your server-rendered payload.
+Wrap your app with `<HeadProvider />` on the server, using a `headTags[]` array to pass down as part of your server-rendered payload. When rendered, the component mutates this array to contain the tags.
 
 ```js
 import * as React from 'react';
@@ -43,7 +43,7 @@ import App from './App';
 
 // ... within the context of a request ...
 
-const headTags = [];
+const headTags = []; // this array gets populated as a prop
 const app = renderToString(
   <HeadProvider headTags={headTags}>
     <App />
