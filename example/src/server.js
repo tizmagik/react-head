@@ -18,7 +18,7 @@ server
     try {
       markup = renderToString(
         <ServerLocation url={req.url}>
-          <HeadProvider headTags={headTags}>
+          <HeadProvider headTags={headTags} whitelist={['title']}>
             <App />
           </HeadProvider>
         </ServerLocation>
