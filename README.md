@@ -84,7 +84,7 @@ const App = () => (
 
 ## Disable data-rh attribute
 
-`<HeadProvider/>` accepts an optional prop `whitelist` which takes an array of CSS selector strings used in `document.querySelector`. This allows `react-head` to know which tags it controlls without the need for the `data-rh` attribute, which might lead to problems with some HTML parsers of SEO tools for example.
+`<HeadProvider/>` accepts an optional prop `whitelist` which takes an array of CSS selector strings used in `document.querySelector`. This allows `react-head` to know which tags it controls without the need for the `data-rh` attribute, which might lead to problems with some HTML parsers of SEO tools for example.
 Only tags you specifically provide to the `whitelist` prop will have the `data-rh` attribute disabled, for all others `react-head` still needs it to identify server rendered tags.
 
 ### Example
