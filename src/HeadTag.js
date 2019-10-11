@@ -9,6 +9,7 @@ export default class HeadTag extends React.Component {
   };
 
   headTags = null;
+
   index = -1;
 
   componentDidMount() {
@@ -18,11 +19,13 @@ export default class HeadTag extends React.Component {
   }
 
   componentWillUnmount() {
-    this.headTags.removeClientTag(this.props.tag, this.index);
+    const { tag } = this.props;
+    this.headTags.removeClientTag(tag, this.index);
   }
 
   render() {
     const { tag: Tag, ...rest } = this.props;
+    const { canUseDOM } = this.state;
 
     return (
       <Consumer>
@@ -31,7 +34,7 @@ export default class HeadTag extends React.Component {
 
           this.headTags = headTags;
 
-          if (this.state.canUseDOM) {
+          if (canUseDOM) {
             if (!headTags.shouldRenderTag(Tag, this.index)) {
               return null;
             }
