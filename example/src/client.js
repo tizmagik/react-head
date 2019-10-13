@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { HeadProvider } from 'react-head';
-import App from './App';
+import App from '../App';
 
 hydrate(
   <HeadProvider>

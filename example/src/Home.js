@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link, Meta, Title, Style } from 'react-head';
-import { Link as RouterLink } from '@reach/router';
-import logo from './react.svg';
+import { Link as RouterLink } from 'react-router-dom';
+import Footer from './Footer';
+import logo from './logo.svg';
 import './Home.css';
 
 const NestedComponent = () => (
@@ -31,14 +32,7 @@ const Home = () => (
       update
     </p>
     <RouterLink to="/contact">Contact Page</RouterLink>
-    <ul className="Home-resources">
-      <li>
-        <a href="https://github.com/tizmagik/react-head">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/tizmagik/react-head/issues">Issues</a>
-      </li>
-    </ul>
+    <Footer />
   </div>
 );
 

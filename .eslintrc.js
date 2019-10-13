@@ -15,5 +15,7 @@ module.exports = {
     'react/sort-comp': 0,
     'react/no-unused-state': 0,
     'react/require-default-props': 0,
+    'react/state-in-constructor': [0, 'never'],
+    'react/jsx-props-no-spreading': 0,
   },
 };

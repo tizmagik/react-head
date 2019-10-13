@@ -26,7 +26,7 @@ export default class HeadProvider extends React.Component {
 
     shouldRenderTag: (tag, index) => {
       if (cascadingTags.indexOf(tag) !== -1) {
-        const names = this.state[tag];
+        const names = this.state[tag]; // eslint-disable-line react/destructuring-assignment
         // check if the tag is the last one of similar
         return names && names.lastIndexOf(names[index]) === index;
       }
@@ -45,7 +45,7 @@ export default class HeadProvider extends React.Component {
     },
 
     addServerTag: tagNode => {
-      const headTags = this.props.headTags || [];
+      const { headTags = [] } = this.props;
       // tweak only cascading tags
       if (cascadingTags.indexOf(tagNode.type) !== -1) {
         const index = headTags.findIndex(prev => {
@@ -70,10 +70,12 @@ export default class HeadProvider extends React.Component {
   }
 
   render() {
+    const { headTags, children } = this.props;
+
     invariant(
-      typeof window !== 'undefined' || Array.isArray(this.props.headTags),
+      typeof window !== 'undefined' || Array.isArray(headTags),
       'headTags array should be passed to <HeadProvider /> in node'
     );
-    return <Provider value={this.state}>{this.props.children}</Provider>;
+    return <Provider value={this.state}>{children}</Provider>;
   }
 }

@@ -1,0 +1,17 @@
+footer {
+  border-top: 1px solid #efefef;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  margin: 0 auto;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer li {
+  display: inline-block;
+  padding: 1rem;
+}
