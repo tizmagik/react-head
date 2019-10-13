@@ -18,16 +18,6 @@
   font-size: large;
 }
 
-.Home-resources {
-  list-style: none;
-  padding-left: 0;
-}
-
-.Home-resources > li {
-  display: inline-block;
-  padding: 1rem;
-}
-
 @keyframes Home-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link, Title, Meta } from 'react-head';
-import { Link as RouterLink } from '@reach/router';
-import logo from './react.svg';
+import { Link as RouterLink } from 'react-router-dom';
+import Footer from './Footer';
+import logo from './logo.svg';
 import './Contact.css';
 
 const NestedComponent = () => (
@@ -27,14 +28,7 @@ const Contact = () => (
       Click the example home page below to see how the Header tags will update
     </p>
     <RouterLink to="/">Home</RouterLink>
-    <ul className="Contact-resources">
-      <li>
-        <a href="https://github.com/tizmagik/react-head">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/tizmagik/react-head/issues">Issues</a>
-      </li>
-    </ul>
+    <Footer />
   </div>
 );
 

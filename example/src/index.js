@@ -1,26 +1,23 @@
-import http from 'http';
-import app from './server';
+import express from 'express';
 
-const server = http.createServer(app);
+const { PORT = 3000 } = process.env;
 
-let currentApp = app;
-
-server.listen(process.env.PORT || 3000, error => {
-  if (error) {
-    console.log(error);
-  }
-
-  console.log('🚀 started');
-});
+let app = require('./server').default;
 
 if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!');
-
   module.hot.accept('./server', () => {
-    console.log('🔁  HMR Reloading `./server`...');
-    server.removeListener('request', currentApp);
-    const newApp = require('./server').default;
-    server.on('request', newApp);
-    currentApp = newApp;
+    console.log('Server reloading...');
+
+    try {
+      app = require('./server').default;
+    } catch (error) {
+      // Do nothing
+    }
   });
 }
+
+express()
+  .use((req, res) => app.handle(req, res))
+  .listen(PORT, () => {
+    console.log(`React SSR App is running: http://localhost:${PORT}`);
+  });
