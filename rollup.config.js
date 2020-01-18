@@ -1,7 +1,7 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import pkg from './package.json';
 
@@ -45,7 +45,7 @@ export default [
       babel(getBabelOptions({ useESModules: true })),
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
       sizeSnapshot(),
-      uglify(),
+      terser(),
     ],
   },
 
@@ -58,7 +58,7 @@ export default [
 
   {
     input,
-    output: { file: pkg.module, format: 'es' },
+    output: { file: pkg.module, format: 'esm' },
     external,
     plugins: [babel(getBabelOptions({ useESModules: true })), sizeSnapshot()],
   },
