@@ -53,7 +53,6 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
-    "babel-plugin-dev-expression": "^0.2.2",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
@@ -80,8 +79,7 @@
     "rollup-plugin-uglify": "^6.0.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.3",
-    "tiny-invariant": "^1.0.6"
+    "@babel/runtime": "^7.6.3"
   },
   "peerDependencies": {
     "react": ">=16.3",

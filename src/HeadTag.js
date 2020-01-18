@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import invariant from 'tiny-invariant';
 import { Consumer } from './context';
 
 export default class HeadTag extends React.Component {
@@ -30,7 +29,9 @@ export default class HeadTag extends React.Component {
     return (
       <Consumer>
         {headTags => {
-          invariant(headTags, '<HeadProvider /> should be in the tree');
+          if (headTags == null) {
+            throw Error('<HeadProvider /> should be in the tree');
+          }
 
           this.headTags = headTags;
 
