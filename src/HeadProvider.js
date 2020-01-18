@@ -1,5 +1,4 @@
 import * as React from 'react';
-import invariant from 'tiny-invariant';
 import { Provider } from './context';
 
 const cascadingTags = ['title', 'meta'];
@@ -72,10 +71,12 @@ export default class HeadProvider extends React.Component {
   render() {
     const { headTags, children } = this.props;
 
-    invariant(
-      typeof window !== 'undefined' || Array.isArray(headTags),
-      'headTags array should be passed to <HeadProvider /> in node'
-    );
+    if (typeof window === 'undefined' && Array.isArray(headTags) === false) {
+      throw Error(
+        'headTags array should be passed to <HeadProvider /> in node'
+      );
+    }
+
     return <Provider value={this.state}>{children}</Provider>;
   }
 }
