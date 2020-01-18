@@ -1,3 +1,4 @@
+import path from 'path';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
@@ -10,7 +11,7 @@ const input = './src/index.js';
 const name = 'ReactHead';
 
 // treat as external everything from node_modules
-const external = id => !id.startsWith('/') && !id.startsWith('.');
+const external = id => !path.isAbsolute(id) && !id.startsWith('.');
 
 const getBabelOptions = ({ useESModules }) => ({
   runtimeHelpers: true,
