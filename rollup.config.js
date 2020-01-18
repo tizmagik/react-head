@@ -20,7 +20,6 @@ const getBabelOptions = ({ useESModules }) => ({
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  'prop-types': 'PropTypes',
 };
 
 export default [
