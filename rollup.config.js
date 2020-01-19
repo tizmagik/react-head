@@ -1,7 +1,8 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
+import path from 'path';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import pkg from './package.json';
 
@@ -10,7 +11,7 @@ const input = './src/index.js';
 const name = 'ReactHead';
 
 // treat as external everything from node_modules
-const external = id => !id.startsWith('/') && !id.startsWith('.');
+const external = id => !path.isAbsolute(id) && !id.startsWith('.');
 
 const getBabelOptions = ({ useESModules }) => ({
   runtimeHelpers: true,
@@ -20,7 +21,6 @@ const getBabelOptions = ({ useESModules }) => ({
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  'prop-types': 'PropTypes',
 };
 
 export default [
@@ -45,7 +45,7 @@ export default [
       babel(getBabelOptions({ useESModules: true })),
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
       sizeSnapshot(),
-      uglify(),
+      terser(),
     ],
   },
 
@@ -58,7 +58,7 @@ export default [
 
   {
     input,
-    output: { file: pkg.module, format: 'es' },
+    output: { file: pkg.module, format: 'esm' },
     external,
     plugins: [babel(getBabelOptions({ useESModules: true })), sizeSnapshot()],
   },
