@@ -14,3 +14,5 @@ declare export var Style: React.ComponentType<{ [string]: mixed }>;
 declare export var Meta: React.ComponentType<{ [string]: mixed }>;
 
 declare export var Link: React.ComponentType<{ [string]: mixed }>;
+
+declare export var Base: React.ComponentType<{ [string]: mixed }>;

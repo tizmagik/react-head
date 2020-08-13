@@ -25,7 +25,7 @@ yarn add react-head
 1.  You wrap your App with `<HeadProvider />`
 1.  From the server, you pass `headTags[]` array to `<HeadProvider />`
 1.  Then call `renderToStaticMarkup(headTags)` and include in the `<head />` block of your server template
-1.  To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />` and `<Link />` components as often as needed.
+1.  To insert head tags within your app, just render one of `<Title />`, `<Meta />`, `<Style />`, `<Link />`, and `<Base />` components as often as needed.
 
 On the server, the tags are collected in the `headTags[]` array, and then on the client the server-generated tags are removed in favor of the client-rendered tags so that SPAs still work as expected (e.g. in cases where subsequent page loads need to change the head tags).
 

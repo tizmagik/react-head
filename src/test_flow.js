@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { HeadProvider, Title, Style, Meta, Link } from '../';
+import { HeadProvider, Title, Style, Meta, Link, Base } from '../';
 
 [
   <HeadProvider headTags={[]}>
@@ -21,4 +21,5 @@ import { HeadProvider, Title, Style, Meta, Link } from '../';
   <Style />,
   <Meta />,
   <Link />,
+  <Base />,
 ];

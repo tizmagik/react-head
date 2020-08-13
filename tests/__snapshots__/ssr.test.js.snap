@@ -22,6 +22,10 @@ Array [
     charSet="utf-8"
     data-rh=""
   />,
+  <base
+    data-rh=""
+    href="/new_base"
+  />,
 ]
 `;
 

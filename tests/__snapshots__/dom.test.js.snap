@@ -17,5 +17,5 @@ exports[`removes head tags added during ssr 2`] = `
       
       
       <not-react-head-element>
-    </not-react-head-element><title>Test title</title><style>body {}</style><link href=\\"index.css\\"><meta charset=\\"utf-8\\">"
+    </not-react-head-element><title>Test title</title><style>body {}</style><link href=\\"index.css\\"><meta charset=\\"utf-8\\"><base href=\\"/new_base\\">"
 `;
