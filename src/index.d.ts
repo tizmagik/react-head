@@ -32,3 +32,10 @@ export const Meta: React.ComponentType<
 export const Link: React.ComponentType<
   React.LinkHTMLAttributes<HTMLLinkElement>
 >;
+
+/**
+ * <base> tag component
+ */
+export const Base: React.ComponentType<
+  React.BaseHTMLAttributes<HTMLBaseElement>
+>;

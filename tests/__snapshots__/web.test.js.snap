@@ -68,6 +68,11 @@ exports[`renders into document.head portal 1`] = `
       charSet="utf-8"
     />
   </portal-head>
+  <portal-head>
+    <base
+      href="/new_base"
+    />
+  </portal-head>
 </div>
 `;
 

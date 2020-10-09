@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Link, Meta, Title, Style } from 'react-head';
+import { Link, Meta, Title, Style, Base } from 'react-head';
 import { Link as RouterLink } from 'react-router-dom';
 import Footer from './Footer';
 import logo from './logo.svg';
@@ -18,6 +18,7 @@ const Home = () => (
     }`}</Style>
     <Link rel="canonical" content="http://jeremygayed.com/" />
     <Meta name="example" content="whatever" />
+    <Base href="/"></Base>
     <div className="Home-header">
       <img src={logo} className="Home-logo" alt="logo" />
       <h2>react-head example</h2>
@@ -31,7 +32,7 @@ const Home = () => (
       Click the example contact page below to see how the Header tags will
       update
     </p>
-    <RouterLink to="/contact">Contact Page</RouterLink>
+    <RouterLink to="contact">Contact Page</RouterLink>
     <Footer />
   </div>
 );

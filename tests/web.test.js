@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as plug from 'react-powerplug';
 import TestRenderer from 'react-test-renderer';
 import './ReactDOMMock';
-import { HeadProvider, Title, Style, Meta, Link } from '../src';
+import { HeadProvider, Title, Style, Meta, Link, Base } from '../src';
 
 test('renders into document.head portal', () => {
   const renderer = TestRenderer.create(
@@ -13,6 +13,7 @@ test('renders into document.head portal', () => {
         <Style>{`body {}`}</Style>
         <Link href="index.css" />
         <Meta charSet="utf-8" />
+        <Base href="/new_base" />
       </div>
     </HeadProvider>
   );

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { HeadProvider, Title, Style, Meta, Link } from '../src';
+import { HeadProvider, Title, Style, Meta, Link, Base } from '../src';
 
 test('removes head tags added during ssr', () => {
   const root = document.createElement('div');
@@ -25,6 +25,7 @@ test('removes head tags added during ssr', () => {
         <Style>{`body {}`}</Style>
         <Link href="index.css" />
         <Meta charSet="utf-8" />
+        <Base href="/new_base" />
       </div>
     </HeadProvider>,
     root

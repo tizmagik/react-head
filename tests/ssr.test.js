@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { HeadProvider, Title, Style, Meta, Link } from '../src';
+import { HeadProvider, Title, Style, Meta, Link, Base } from '../src';
 
 test('renders nothing and adds tags to headTags context array', () => {
   const arr = [];
@@ -16,6 +16,7 @@ test('renders nothing and adds tags to headTags context array', () => {
         <Style>{`body {}`}</Style>
         <Link href="index.css" />
         <Meta charSet="utf-8" />
+        <Base href="/new_base" />
       </div>
     </HeadProvider>
   );
