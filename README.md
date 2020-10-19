@@ -74,7 +74,7 @@ const App = () => (
   <HeadProvider>
     <div className="Home">
       <Title>Title of page</Title>
-      <Link rel="canonical" content="http://jeremygayed.com/" />
+      <Link rel="canonical" href="http://jeremygayed.com/" />
       <Meta name="example" content="whatever" />
       // ...
     </div>
