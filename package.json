@@ -102,8 +102,5 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
-  },
-  "publishConfig": {
-    "registry": "https://nexus.drivenow.com.au/repository/npm-private"
   }
 }
