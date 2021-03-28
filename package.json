@@ -1,6 +1,6 @@
 {
   "name": "react-head",
-  "version": "3.4.0",
+  "version": "3.4.1-drivenow-2",
   "description": "SSR-ready Document Head management for React 16+",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -102,5 +102,8 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
+  },
+  "publishConfig": {
+    "registry": "https://nexus.drivenow.com.au/repository/npm-private"
   }
 }

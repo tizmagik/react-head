@@ -58,6 +58,11 @@ export default class HeadProvider extends React.Component {
       }
       headTags.push(tagNode);
     },
+
+    addServerComponents: components => {
+      const { headTags = [] } = this.props;
+      components.forEach(s=>headTags.push(s))
+    }
   };
 
   componentDidMount() {
