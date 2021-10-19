@@ -4,7 +4,7 @@
 
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { HeadProvider, Title, Style, Meta, Link, Base } from '../src';
+import { HeadProvider, Title, Style, Meta, Link, Base, Static } from '../src';
 
 test('renders nothing and adds tags to headTags context array', () => {
   const arr = [];
@@ -98,4 +98,19 @@ test('throw error if head tag is rendered without HeadProvider', () => {
     renderToStaticMarkup(<Style>{`body {}`}</Style>);
   }).toThrowError(/<HeadProvider \/> should be in the tree/);
   errorFn.mockRestore();
+});
+
+
+
+test('renders Static content', () => {
+  const arr = [];
+  renderToStaticMarkup(
+    <HeadProvider headTags={arr}>
+      <Static json={[
+          {type:'tag',name:'meta',attribs:{proprty:'og:title',content:'example'}},
+          {type:'tag',name:'link',attribs:{rel:'canonical',href:'https://example.com'}},
+      ]}/>
+    </HeadProvider>
+  );
+  expect(arr).toMatchSnapshot();
 });

@@ -36,6 +36,32 @@ export const Link: React.ComponentType<
 /**
  * <base> tag component
  */
-export const Base: React.ComponentType<
-  React.BaseHTMLAttributes<HTMLBaseElement>
+ export const Base: React.ComponentType<
+ React.BaseHTMLAttributes<HTMLBaseElement>
 >;
+
+
+/**
+ * <script> tag component
+ * 
+ * WARNING NOT FOR INJECTING CODE - use this for things like <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}/>
+ */
+ export const Script: React.ComponentType<
+ React.ScriptHTMLAttributes<HTMLScriptElement>
+>;
+
+export type StaticNodeType = "script" | "style" | "tag" | string
+export type StaticNode = {
+  type: StaticNodeType
+  name: string
+  children ?: Array<StaticNode>
+  attribs ?: Record<string, any>
+}
+
+/**
+ * <Static> tag component for rendering pre-parsed static content to the head.  Useful for headless cms that return arbitrary content to inject into the head.
+ *
+ * WARNING : No attempt is made to de-duplicate tags provided by Static and those provided by <Meta> and <Title>
+ */
+ export const Static: React.ComponentType<{json:Array<StaticNode>}>
+
