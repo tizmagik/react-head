@@ -5,6 +5,7 @@ import * as React from 'react';
  */
 export const HeadProvider: React.ComponentType<{
   headTags?: React.ReactElement<unknown>[];
+  children?: React.ReactNode | undefined
 }>;
 
 /**
