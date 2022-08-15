@@ -16,3 +16,10 @@ declare export var Meta: React.ComponentType<{ [string]: mixed }>;
 declare export var Link: React.ComponentType<{ [string]: mixed }>;
 
 declare export var Base: React.ComponentType<{ [string]: mixed }>;
+
+/**
+ * WARNING NOT FOR INJECTING CODE - use this for things like <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}/>
+ */
+declare export var Script: React.ComponentType<{ [string]: mixed }>;
+
+declare export var Static: React.ComponentType<{ [string]: mixed }>;

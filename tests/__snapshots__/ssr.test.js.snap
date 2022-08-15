@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders Static content 1`] = `
+Array [
+  <meta
+    content="example"
+    proprty="og:title"
+  />,
+  <link
+    href="https://example.com"
+    rel="canonical"
+  />,
+]
+`;
+
 exports[`renders nothing and adds tags to headTags context array 1`] = `"<div>Yes render</div>"`;
 
 exports[`renders nothing and adds tags to headTags context array 2`] = `
